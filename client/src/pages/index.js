@@ -5,16 +5,24 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
+const style = {
+  defaultImage: {
+    maxWidth: `300px`,
+    marginBottom: `1.45rem`,
+  },
+}
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
+    <h1>Hi, I'm Vincent :)</h1>
+    <p>Welcome to my Portfolio.</p>
     <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+    <div style={style.defaultImage}>
       <Image />
     </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
+    <Link to="/page-2/">Go to page 2</Link>
+    <br />
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
   </Layout>
 )
