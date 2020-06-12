@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import axios from "axios"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../ui/Layout/Layout.js"
+import SEO from "../utils/Seo.js"
 
 const Time = () => {
   //   const [time, setTime] = useState({})
