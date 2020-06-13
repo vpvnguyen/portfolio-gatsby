@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 
 import Layout from "../ui/Layout/Layout.js"
 import Image from "../images/image.js"
-import SEO from "../utils/Seo.js"
 
 const style = {
   defaultImage: {
@@ -14,7 +13,6 @@ const style = {
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
     <h1>Hi, I'm Vincent :)</h1>
     <p>Welcome to my Portfolio.</p>
     <p>Now go build something great.</p>

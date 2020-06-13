@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import axios from "axios"
 
 import Layout from "../ui/Layout/Layout.js"
-import SEO from "../utils/Seo.js"
 
 const Time = () => {
   //   const [time, setTime] = useState({})
@@ -26,7 +25,6 @@ const Time = () => {
 
   return (
     <Layout>
-      <SEO title="time page" />
       <h1>Server Time</h1>
       <p>Welcome to page 2</p>
       <Link to="/">Go back to the homepage</Link>
