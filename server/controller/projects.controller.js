@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { user, getGithubProjects } = require("../model/github.api.js");
+const { getGithubProjects } = require("../model/github.api.js");
 
 router.get("/projects", async (req, res) => {
   try {
@@ -24,18 +24,17 @@ router.get("/getAllProjects", async (req, res) => {
 
 router.get("/getGithubProjects", async (req, res) => {
   try {
-    const allProjects = await getGithubProjects();
+    const githubProjects = await getGithubProjects();
 
-    const projectsArray = allProjects.map((project) => {
-      const projects = {
+    const projectsArray = githubProjects.map((project) => {
+      return (projects = {
         id: project.id,
         html_url: project.html_url,
         language: project.language,
         created_at: project.created_at,
         updated_at: project.updated_at,
         pushed_at: project.pushed_at,
-      };
-      return projects;
+      });
     });
 
     res.status(200).json(projectsArray);
