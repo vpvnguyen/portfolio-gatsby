@@ -16,6 +16,34 @@ const IndexPage = () => (
     <h1>Hi, I'm Vincent :)</h1>
     <p>Welcome to my Portfolio.</p>
     <p>Now go build something great.</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+
     <div style={style.defaultImage}>
       <Image />
     </div>
