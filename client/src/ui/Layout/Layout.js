@@ -5,20 +5,19 @@ import PropTypes from "prop-types";
 import { Container } from "@material-ui/core";
 
 // components
+import Header from "../Header.js";
 import Navbar from "../../components/Navbar/Navbar.js";
+import Footer from "../Footer/Footer.js";
 
 const Layout = ({ children }) => {
   return (
     <>
+      <Header />
       <Navbar />
       <Container maxWidth="sm">
         <main>{children}</main>
       </Container>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </>
   );
 };
