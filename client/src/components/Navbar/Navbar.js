@@ -7,20 +7,29 @@ import Button from "@material-ui/core/Button";
 // social icons
 import Social from "../Social/Social.js";
 
+// theme
+import theme from "../../ui/theme.js";
+
 // effects
 import ElevationScroll from "./Navbar.effects.js";
 
 const style = {
   root: {
     flexGrow: 1,
+    backgroundColor: theme.primary,
+    color: theme.secondary,
   },
   title: {
     flexGrow: 1,
-    color: "White",
+    color: theme.secondary,
     "&:hover": {
       backgroundColor: "transparent",
     },
     textDecoration: "none" /* no underline */,
+  },
+  theme: {
+    backgroundColor: theme.primary,
+    color: theme.secondary,
   },
 };
 
@@ -30,7 +39,7 @@ const Navbar = () => {
       {/* slight shadow effect for navbar when scrolling */}
       <ElevationScroll>
         {/* position="fixed" will fill bar to edges; keep bar fixed to top of screen when scrolling */}
-        <AppBar position="fixed">
+        <AppBar position="fixed" style={style.theme}>
           <Toolbar style={style.root}>
             <Button variant="raised" style={style.title} disableRipple>
               <Link to="/" style={style.title}>
@@ -40,6 +49,7 @@ const Navbar = () => {
             <Social />
             <Button color="inherit">
               <a
+                style={style.theme}
                 href="https://docs.google.com/document/d/1PTogfVNXdTCEIQor0yN4gXIcFEKxHRFzGIlRl4287xM/edit?usp=sharing"
                 target="_blank"
                 download
