@@ -4,6 +4,9 @@ import React from "react";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
+// theme
+import theme from "../../ui/theme.js";
+
 const socialMedia = {
   user: "vpvnguyen",
   github: {
@@ -17,6 +20,8 @@ const socialMedia = {
 const style = {
   fontSize: "1.4em",
   margin: "0.2em",
+  backgroundColor: theme.primary,
+  color: theme.secondary,
 };
 
 const Social = () => {
