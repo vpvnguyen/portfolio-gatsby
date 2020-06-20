@@ -15,7 +15,14 @@ import ElevationScroll from "./Navbar.effects.js";
 
 const style = {
   root: {
-    flexGrow: 1,
+    // flexGrow: 1,
+    backgroundColor: theme.primary,
+    color: theme.secondary,
+  },
+  navContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
     backgroundColor: theme.primary,
     color: theme.secondary,
   },
@@ -27,9 +34,9 @@ const style = {
     },
     textDecoration: "none" /* no underline */,
   },
-  theme: {
-    backgroundColor: theme.primary,
+  resume: {
     color: theme.secondary,
+    textDecoration: "none" /* no underline */,
   },
 };
 
@@ -39,8 +46,8 @@ const Navbar = () => {
       {/* slight shadow effect for navbar when scrolling */}
       <ElevationScroll>
         {/* position="fixed" will fill bar to edges; keep bar fixed to top of screen when scrolling */}
-        <AppBar position="fixed" style={style.theme}>
-          <Toolbar style={style.root}>
+        <AppBar position="fixed" style={style.navContainer}>
+          <Toolbar style={style.navContainer}>
             <Button variant="raised" style={style.title} disableRipple>
               <Link to="/" style={style.title}>
                 Vincent Nguyen
@@ -49,7 +56,7 @@ const Navbar = () => {
             <Social />
             <Button color="inherit">
               <a
-                style={style.theme}
+                style={style.resume}
                 href="https://docs.google.com/document/d/1PTogfVNXdTCEIQor0yN4gXIcFEKxHRFzGIlRl4287xM/edit?usp=sharing"
                 target="_blank"
                 download
