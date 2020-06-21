@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
-import axios from "axios"
+import React from "react";
+import { Link } from "gatsby";
 
-import Layout from "../ui/Layout/Layout.js"
+import Layout from "../ui/Layout/Layout.js";
 
 const Time = () => {
   //   const [time, setTime] = useState({})
@@ -29,7 +28,7 @@ const Time = () => {
       <p>Welcome to page 2</p>
       <Link to="/">Go back to the homepage</Link>
     </Layout>
-  )
-}
+  );
+};
 
-export default Time
+export default Time;
