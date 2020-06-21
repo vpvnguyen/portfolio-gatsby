@@ -15,9 +15,9 @@ import ElevationScroll from "./Navbar.effects.js";
 
 const style = {
   root: {
-    // flexGrow: 1,
     backgroundColor: theme.primary,
     color: theme.secondary,
+    height: "70px",
   },
   navContainer: {
     display: "flex",
@@ -48,7 +48,7 @@ const Navbar = () => {
         {/* position="fixed" will fill bar to edges; keep bar fixed to top of screen when scrolling */}
         <AppBar position="fixed" style={style.navContainer}>
           <Toolbar style={style.navContainer}>
-            <Button variant="raised" style={style.title} disableRipple>
+            <Button style={style.title} disableRipple>
               <Link to="/" style={style.title}>
                 Vincent Nguyen
               </Link>
@@ -59,6 +59,7 @@ const Navbar = () => {
                 style={style.resume}
                 href="https://docs.google.com/document/d/1PTogfVNXdTCEIQor0yN4gXIcFEKxHRFzGIlRl4287xM/edit?usp=sharing"
                 target="_blank"
+                rel="noreferrer"
                 download
               >
                 Resume
