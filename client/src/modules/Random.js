@@ -4,11 +4,14 @@ import axios from "axios";
 const Random = ({ results = 1 }) => {
   const [person, setPerson] = useState();
 
-  useEffect(async () => {
-    const getRandomPerson = await axios.get(
-      `https://randomuser.me/api?results=${results}`
-    );
-    setPerson(JSON.stringify(getRandomPerson, null, 2));
+  useEffect(() => {
+    const getRandomPerson = async () => {
+      const randomPerson = await axios.get(
+        `https://randomuser.me/api?results=${results}`
+      );
+      setPerson(JSON.stringify(randomPerson, null, 2));
+    };
+    getRandomPerson();
   }, [results]);
 
   return (
