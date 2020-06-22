@@ -7,7 +7,7 @@ import {
   Button,
 } from "@material-ui/core";
 
-import getAllProjects from "../../utils/api/projects.api.js";
+import ProjectsAPI from "../../utils/api/projects.api.js";
 
 const style = {
   formGroup: {
@@ -41,8 +41,8 @@ const UploadProject = () => {
     e.preventDefault();
     console.log("submit");
     try {
-      const response = await getAllProjects();
-      console.log(response);
+      const allProjects = await ProjectsAPI.getAllProjects();
+      console.log(allProjects.data);
     } catch (error) {
       console.error(error.message);
     }
