@@ -42,7 +42,7 @@ const UploadProject = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log("submit");
+    console.log("clicked submit");
 
     try {
       const projectData = {
@@ -56,9 +56,9 @@ const UploadProject = () => {
         projectData
       );
 
-      console.log(uploadProjectResponse);
+      console.log("Project submitted", uploadProjectResponse);
     } catch (error) {
-      console.error(error.message);
+      console.error("Issue handling submit", error.message);
     }
   };
 
@@ -71,15 +71,15 @@ const UploadProject = () => {
     <div style={style.formGroup}>
       <h1>Upload Project</h1>
       <FormControl>
-        <InputLabel htmlFor="project-link">Github URL</InputLabel>
+        <InputLabel htmlFor="project-github-url">Github URL</InputLabel>
         <Input
-          id="project-link-input"
-          aria-describedby="project-link-text"
+          id="project-github-url-input"
+          aria-describedby="project-github-url-text"
           name="githubUrl"
           value={githubUrl}
           onChange={handleChange}
         />
-        <FormHelperText id="project-link-text">
+        <FormHelperText id="project-github-url-text">
           "https://github.com/username/myAwesomeProject"
         </FormHelperText>
       </FormControl>
@@ -113,15 +113,15 @@ const UploadProject = () => {
       </FormControl>
 
       <FormControl>
-        <InputLabel htmlFor="project-link">Github URL</InputLabel>
+        <InputLabel htmlFor="project-demo-url">Demo URL (Optional)</InputLabel>
         <Input
-          id="project-link-input"
-          aria-describedby="project-link-text"
+          id="project-demo-url-input"
+          aria-describedby="project-demo-url-text"
           name="demoUrl"
           value={demoUrl}
           onChange={handleChange}
         />
-        <FormHelperText id="project-link-text">
+        <FormHelperText id="project-demo-url-text">
           "https://myAwesomeDemo.com"
         </FormHelperText>
       </FormControl>
