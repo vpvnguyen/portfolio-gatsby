@@ -13,16 +13,16 @@ router.get("/projects", async (req, res) => {
   }
 });
 
-router.get("/getAllProjects", async (req, res) => {
+router.get("/get-all-projects", async (req, res) => {
   try {
     res.status(200).json({ message: `get all projects` });
   } catch (error) {
-    console.error("/getAllProjects", error.message);
+    console.error("/get-all-projects", error.message);
     res.status(500);
   }
 });
 
-router.get("/getGithubProjects", async (req, res) => {
+router.get("/get-github-projects", async (req, res) => {
   try {
     const githubProjects = await getGithubProjects();
 
@@ -39,7 +39,7 @@ router.get("/getGithubProjects", async (req, res) => {
 
     res.status(200).json(projectsArray);
   } catch (error) {
-    console.error("/getGithubProjects", error.message);
+    console.error("/get-github-projects", error.message);
     res.status(500);
   }
 });
@@ -49,7 +49,7 @@ router.post("/upload-project", async (req, res) => {
     const { githubUrl, title, description, demoUrl } = req.body;
     res.status(200).json({ githubUrl, title, description, demoUrl });
   } catch (error) {
-    console.error("/addProject", error.message);
+    console.error("/upload-project", error.message);
     res.status(500);
   }
 });
