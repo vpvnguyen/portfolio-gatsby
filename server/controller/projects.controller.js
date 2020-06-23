@@ -44,11 +44,10 @@ router.get("/getGithubProjects", async (req, res) => {
   }
 });
 
-router.post("/addProject", async (req, res) => {
+router.post("/upload-project", async (req, res) => {
   try {
-    const { title, description, demoURL, githubURL } = req.body;
-    console.log(title, description, demoURL, githubURL);
-    res.status(200).json({ title, description, demoURL, githubURL });
+    const { githubUrl, title, description, demoUrl } = req.body;
+    res.status(200).json({ githubUrl, title, description, demoUrl });
   } catch (error) {
     console.error("/addProject", error.message);
     res.status(500);
