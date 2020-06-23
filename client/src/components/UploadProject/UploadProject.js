@@ -23,13 +23,16 @@ const style = {
 };
 
 const initialState = {
-  url: "",
+  githubUrl: "",
   title: "",
   description: "",
+  demoUrl: "",
 };
 
 const UploadProject = () => {
-  const [{ url, title, description }, setProject] = useState(initialState);
+  const [{ githubUrl, title, description, demoUrl }, setProject] = useState(
+    initialState
+  );
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -40,9 +43,20 @@ const UploadProject = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     console.log("submit");
+
     try {
-      const allProjects = await ProjectsAPI.getAllProjects();
-      console.log(allProjects.data);
+      const projectData = {
+        githubUrl,
+        title,
+        description,
+        demoUrl,
+      };
+
+      const uploadProjectResponse = await ProjectsAPI.uploadProject(
+        projectData
+      );
+
+      console.log(uploadProjectResponse);
     } catch (error) {
       console.error(error.message);
     }
@@ -61,8 +75,8 @@ const UploadProject = () => {
         <Input
           id="project-link-input"
           aria-describedby="project-link-text"
-          name="url"
-          value={url}
+          name="githubUrl"
+          value={githubUrl}
           onChange={handleChange}
         />
         <FormHelperText id="project-link-text">
@@ -95,6 +109,20 @@ const UploadProject = () => {
         />
         <FormHelperText id="project-description-text">
           "Saving the world"
+        </FormHelperText>
+      </FormControl>
+
+      <FormControl>
+        <InputLabel htmlFor="project-link">Github URL</InputLabel>
+        <Input
+          id="project-link-input"
+          aria-describedby="project-link-text"
+          name="demoUrl"
+          value={demoUrl}
+          onChange={handleChange}
+        />
+        <FormHelperText id="project-link-text">
+          "https://myAwesomeDemo.com"
         </FormHelperText>
       </FormControl>
 
