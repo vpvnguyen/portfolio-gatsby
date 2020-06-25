@@ -3,14 +3,14 @@ import axios from "axios";
 const ProjectsAPI = {
   getAllProjects: async () =>
     await axios.get("http://localhost:5000/api/get-all-projects"),
-  uploadProject: async ({ githubUrl, title, description, demoUrl }) => {
+  uploadProject: async ({ title, description, githubUrl, demoUrl }) => {
     try {
       const response = await axios.post(
         `http://localhost:5000/api/upload-project`,
         {
-          githubUrl,
           title,
           description,
+          githubUrl,
           demoUrl,
         }
       );
