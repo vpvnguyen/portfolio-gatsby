@@ -1,6 +1,18 @@
 const express = require("express");
 const router = express.Router();
 const { getGithubProjects } = require("../model/github.api.js");
+const { getMockData } = require("../model/projects.db.js");
+
+// get mock data
+router.get("/get-mock-data", async (req, res) => {
+  try {
+    const response = await getMockData();
+    res.status(200).json(response);
+  } catch (error) {
+    console.error("/get-mock-data", error.message);
+    res.status(500);
+  }
+});
 
 router.get("/projects", async (req, res) => {
   try {
