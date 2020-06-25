@@ -1,26 +1,29 @@
 const express = require("express");
 const router = express.Router();
 const { getGithubProjects } = require("../model/github.api.js");
-const { getMockData } = require("../model/projects.db.js");
+const { getAllProjects, addProject } = require("../model/projects.db.js");
 
-// get mock data
-router.get("/get-mock-data", async (req, res) => {
+// get all projects
+router.get("/projects", async (req, res) => {
   try {
-    const response = await getMockData();
+    const response = await getAllProjects();
     res.status(200).json(response);
   } catch (error) {
-    console.error("/get-mock-data", error.message);
+    console.error("/projects", error.message);
     res.status(500);
   }
 });
 
-router.get("/projects", async (req, res) => {
+// upload a project
+router.post("/upload-project", async (req, res) => {
   try {
-    res
-      .status(200)
-      .json({ message: `Projects Controller`, route: "/api/projects" });
+    const { title, description, githubUrl, demoUrl } = req.body;
+    // add project using ORM
+    const newProject = await addProject(title, description, githubUrl, demoUrl);
+    res.status(200).json(newProject);
+    // res.status(200).json({ title, description, githubUrl, demoUrl });
   } catch (error) {
-    console.error("/projects", error.message);
+    console.error("/upload-project", error.message);
     res.status(500);
   }
 });
@@ -52,16 +55,6 @@ router.get("/get-github-projects", async (req, res) => {
     res.status(200).json(projectsArray);
   } catch (error) {
     console.error("/get-github-projects", error.message);
-    res.status(500);
-  }
-});
-
-router.post("/upload-project", async (req, res) => {
-  try {
-    const { githubUrl, title, description, demoUrl } = req.body;
-    res.status(200).json({ githubUrl, title, description, demoUrl });
-  } catch (error) {
-    console.error("/upload-project", error.message);
     res.status(500);
   }
 });
