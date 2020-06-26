@@ -1,4 +1,4 @@
-const pool = require("../config/database");
+const pool = require("../config/database.js");
 
 // Projects ORM
 const ProjectsDB = {
@@ -19,6 +19,17 @@ const ProjectsDB = {
       return newProject.rows[0];
     } catch (error) {
       console.error("ProjectsDB.addProject", error.message);
+    }
+  },
+  deleteProject: async (id) => {
+    try {
+      const deleteProject = await pool.query(
+        "DELETE FROM projects WHERE id = $1",
+        [id]
+      );
+      return `${id} has been deleted`;
+    } catch (error) {
+      console.error("ProjectsDB.deleteProject", id);
     }
   },
 };
