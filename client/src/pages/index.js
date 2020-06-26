@@ -4,6 +4,8 @@ import { Link } from "gatsby";
 import Layout from "../ui/Layout/Layout.js";
 import Image from "../images/image.js";
 
+import Welcome from "../components/Welcome/Welcome.js";
+
 const style = {
   defaultImage: {
     maxWidth: `300px`,
@@ -13,37 +15,7 @@ const style = {
 
 const IndexPage = () => (
   <Layout>
-    <h1>Hi, I'm Vincent :)</h1>
-    <p>Welcome to my Portfolio.</p>
-    <p>Now go build something great.</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-
+    <Welcome />
     <div style={style.defaultImage}>
       <Image />
     </div>
