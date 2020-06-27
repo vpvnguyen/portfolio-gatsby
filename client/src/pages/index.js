@@ -5,6 +5,7 @@ import Layout from "../ui/Layout/Layout.js";
 import Image from "../images/image.js";
 
 import Welcome from "../components/Welcome/Welcome.js";
+import ListProjects from "../components/ListProjects/ListProjects.js";
 
 const style = {
   defaultImage: {
@@ -16,6 +17,8 @@ const style = {
 const IndexPage = () => (
   <Layout>
     <Welcome />
+    <hr />
+    <ListProjects />
     <div style={style.defaultImage}>
       <Image />
     </div>
