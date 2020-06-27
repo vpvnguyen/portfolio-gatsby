@@ -8,6 +8,7 @@ import { CssBaseline, Container } from "@material-ui/core";
 import Header from "../Header.js";
 import Navbar from "../../components/Navbar/Navbar.js";
 import Footer from "../Footer/Footer.js";
+import SideBar from "../../components/SideBar/SideBar.js";
 
 const Layout = ({ children }) => {
   return (
@@ -16,6 +17,7 @@ const Layout = ({ children }) => {
       <Header />
       <Navbar />
       <Container maxWidth="sm">
+        <SideBar />
         <main>{children}</main>
       </Container>
       <Footer />
