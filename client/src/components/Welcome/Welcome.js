@@ -2,15 +2,22 @@ import React from "react";
 
 const style = {
   welcomeWrapper: {
-    minHeight: "91vh",
+    minHeight: "92vh",
+    // height: "20%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    paddingBottom: 650,
   },
   heading: {
-    paddingTop: 50,
-    paddingLeft: 50,
+    // paddingTop: -50,
+    // paddingLeft: 50,
+    // paddingBottom: 50,
   },
   intro: {
-    paddingTop: 100,
-    paddingLeft: 50,
+    // paddingTop: 50,
+    // paddingLeft: 50,
   },
 };
 
