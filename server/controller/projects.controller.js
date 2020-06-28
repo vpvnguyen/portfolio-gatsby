@@ -70,12 +70,16 @@ router.get("/get-github-projects", async (req, res) => {
   try {
     const githubProjects = await getGithubProjects();
 
-    const filteredStarredProjects = githubProjects.reduce((result, value) => {
-      if (value.stargazers_count > 0) result.push(value);
+    const filteredStarredProjects = githubProjects.reduce((result, project) => {
+      if (project.stargazers_count > 0) result.push(project);
       return result;
     }, []);
 
-    const projectsArray = filteredStarredProjects.map((project) => {
+    const sortProjectsByDate = filteredStarredProjects.sort(
+      (a, b) => b.pushed_at - a.pushed_at
+    );
+
+    const projectsArray = sortProjectsByDate.map((project) => {
       return {
         id: project.id,
         name: project.name,
