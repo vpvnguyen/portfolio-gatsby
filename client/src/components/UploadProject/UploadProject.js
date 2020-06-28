@@ -23,14 +23,14 @@ const style = {
 };
 
 const initialState = {
-  githubUrl: "",
   title: "",
   description: "",
+  githubUrl: "",
   demoUrl: "",
 };
 
 const UploadProject = () => {
-  const [{ githubUrl, title, description, demoUrl }, setProject] = useState(
+  const [{ title, description, githubUrl, demoUrl }, setProject] = useState(
     initialState
   );
 
@@ -46,9 +46,9 @@ const UploadProject = () => {
 
     try {
       const projectData = {
-        githubUrl,
         title,
         description,
+        githubUrl,
         demoUrl,
       };
 
