@@ -6,7 +6,6 @@ const {
   addProject,
   deleteProject,
 } = require("../model/projects.db.js");
-const { default: Axios } = require("axios");
 
 // get all projects
 router.get("/projects", async (req, res) => {
@@ -37,7 +36,6 @@ router.post("/upload-project", async (req, res) => {
     // add project using ORM
     const newProject = await addProject(title, description, githubUrl, demoUrl);
     res.status(200).json(newProject);
-    // res.status(200).json({ title, description, githubUrl, demoUrl });
   } catch (error) {
     console.error("/upload-project", error.message);
     res.status(500);
@@ -58,7 +56,7 @@ router.delete("/delete-project/:id", async (req, res) => {
   }
 });
 
-router.get("/get-all-github-projects", async (req, res) => {
+router.get("/get-all-projects", async (req, res) => {
   try {
     const githubProjects = await getGithubProjects();
     res.status(200).json(githubProjects);
@@ -72,15 +70,23 @@ router.get("/get-github-projects", async (req, res) => {
   try {
     const githubProjects = await getGithubProjects();
 
-    const projectsArray = githubProjects.map((project) => {
-      return (projects = {
+    const filteredStarredProjects = githubProjects.reduce((result, value) => {
+      if (value.stargazers_count > 0) result.push(value);
+      return result;
+    }, []);
+
+    const projectsArray = filteredStarredProjects.map((project) => {
+      return {
         id: project.id,
+        name: project.name,
+        description: project.description,
         html_url: project.html_url,
+        homepage: project.homepage,
         language: project.language,
         created_at: project.created_at,
         updated_at: project.updated_at,
         pushed_at: project.pushed_at,
-      });
+      };
     });
 
     res.status(200).json(projectsArray);
