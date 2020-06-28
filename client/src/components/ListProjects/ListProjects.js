@@ -13,6 +13,10 @@ const style = {
     backgroundColor: "#333" /* Modern Browsers */,
     opacity: 0.25,
   },
+  projectDescription: {
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
 };
 
 const ListProjects = () => {
@@ -38,15 +42,33 @@ const ListProjects = () => {
 
   return (
     <Fragment>
-      <h1>List of Projects</h1>
-      <p>{projects.message}</p>
+      <h1>Projects</h1>
+
       {githubProjects ? (
         githubProjects.map(project => (
           <div>
-            <div>ID: {project.id}</div>
-            <a href={project.html_url} target="_blank" rel="noreferrer">
-              {project.html_url}
-            </a>
+            <h3>{project.name}</h3>
+
+            {project.description !== null && project.description !== "" ? (
+              <p style={style.projectDescription}>{project.description}</p>
+            ) : null}
+
+            {project.homepage !== null && project.homepage !== "" ? (
+              <div>
+                Demo:{" "}
+                <a href={project.homepage} target="_blank" rel="noreferrer">
+                  {project.homepage}
+                </a>
+              </div>
+            ) : null}
+
+            <div>
+              Repo:{" "}
+              <a href={project.html_url} target="_blank" rel="noreferrer">
+                {project.html_url}
+              </a>
+            </div>
+
             <p>{project.language}</p>
             <p>Created at {project.created_at}</p>
             <p>Updated at {project.updated_at}</p>
