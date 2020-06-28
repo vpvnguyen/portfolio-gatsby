@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import dayjs from "dayjs";
 
 import ProjectAPI from "../../utils/api/projects.api.js";
 import GithubAPI from "../../utils/api/github.api.js";
@@ -16,6 +17,9 @@ const style = {
   projectDescription: {
     paddingLeft: 15,
     paddingRight: 15,
+  },
+  projectMinorInfo: {
+    fontSize: ".7rem",
   },
 };
 
@@ -69,9 +73,11 @@ const ListProjects = () => {
               </a>
             </div>
 
-            <p>{project.language}</p>
-            <p>Created at {project.created_at}</p>
-            <p>Updated at {project.updated_at}</p>
+            <div style={style.projectMinorInfo}>
+              <p>{project.language}</p>
+              <p>Updated: {dayjs(project.updated_at).format("MM-DD-YYYY")}</p>
+            </div>
+
             <hr style={style.lineBreak} />
           </div>
         ))
