@@ -14,20 +14,16 @@ router.get("/projects", async (req, res) => {
     res.status(200).json(response);
   } catch (error) {
     console.error("/projects", error.message);
-    res.status(500);
+    res.status(500).json(`Server error getting projects`);
   }
 });
 
 // upload a project
 router.post("/upload-project", async (req, res) => {
-  console.log("/upload-project");
   try {
     const { title, description, githubUrl, demoUrl } = req.body;
-    console.log("req.body", req.body);
-    console.log("title", typeof title);
 
     if (title === "" || description === "" || githubUrl === "") {
-      console.log("something is empty");
       return res.json({
         error: "Title, Description, Github URL should not be empty",
       });
@@ -38,7 +34,7 @@ router.post("/upload-project", async (req, res) => {
     res.status(200).json(newProject);
   } catch (error) {
     console.error("/upload-project", error.message);
-    res.status(500);
+    res.status(500).json(`Server error creating project`);
   }
 });
 
@@ -46,13 +42,13 @@ router.post("/upload-project", async (req, res) => {
 router.delete("/delete-project/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(`/delete-project/${id}`);
     const response = await deleteProject(id);
     res
       .status(200)
       .json({ message: `Project ID:${response} has been deleted` });
   } catch (error) {
     console.error("/delete-project", error.message);
+    res.status(500).json(`Server error deleting project`);
   }
 });
 
@@ -62,7 +58,7 @@ router.get("/get-all-projects", async (req, res) => {
     res.status(200).json(githubProjects);
   } catch (error) {
     console.error("/get-all-projects", error.message);
-    res.status(500);
+    res.status(500).json(`Server error getting all Github projects`);
   }
 });
 
@@ -96,7 +92,7 @@ router.get("/get-github-projects", async (req, res) => {
     res.status(200).json(projectsArray);
   } catch (error) {
     console.error("/get-github-projects", error.message);
-    res.status(500);
+    res.status(500).json(`Server error getting sorted Github projects`);
   }
 });
 
