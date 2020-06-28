@@ -58,9 +58,10 @@ router.delete("/delete-project/:id", async (req, res) => {
   }
 });
 
-router.get("/get-all-projects", async (req, res) => {
+router.get("/get-all-github-projects", async (req, res) => {
   try {
-    res.status(200).json({ message: `get all projects` });
+    const githubProjects = await getGithubProjects();
+    res.status(200).json(githubProjects);
   } catch (error) {
     console.error("/get-all-projects", error.message);
     res.status(500);
