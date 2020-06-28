@@ -12,7 +12,7 @@ import Footer from "../Footer/Footer.js";
 
 const style = {
   contentWrapper: {
-    height: "100vh",
+    height: "100vh", // fallback
     height: "calc(var(--vh, 1vh) * 100)",
     margin: "0 auto",
   },
