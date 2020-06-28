@@ -82,7 +82,7 @@ const ListProjects = () => {
           </div>
         ))
       ) : (
-        <div>Loading Projects...</div>
+        <h2>Loading Projects...</h2>
       )}
     </Fragment>
   );
