@@ -75,7 +75,7 @@ const ListProjects = () => {
 
             <div style={style.projectMinorInfo}>
               <p>{project.language}</p>
-              <p>Updated: {dayjs(project.updated_at).format("MM-DD-YYYY")}</p>
+              <p>Updated: {dayjs(project.pushed_at).format("MM-DD-YYYY")}</p>
             </div>
 
             <hr style={style.lineBreak} />
