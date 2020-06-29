@@ -90,8 +90,6 @@ router.get("/get-github-projects", async (req, res) => {
       (a, b) => b.pushed_at - a.pushed_at
     );
 
-    console.log(sortProjectsByDate);
-
     res.status(200).json(sortProjectsByDate);
   } catch (error) {
     console.error("/get-github-projects", error.message);
