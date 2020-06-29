@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+
 const { getGithubProjects } = require("../model/github.api.js");
 const {
   getAllProjects,
@@ -71,11 +72,7 @@ router.get("/get-github-projects", async (req, res) => {
       return result;
     }, []);
 
-    const sortProjectsByDate = filteredStarredProjects.sort(
-      (a, b) => b.pushed_at - a.pushed_at
-    );
-
-    const projectsArray = sortProjectsByDate.map((project) => {
+    const createProjectsArray = filteredStarredProjects.map((project) => {
       return {
         id: project.id,
         name: project.name,
@@ -85,11 +82,17 @@ router.get("/get-github-projects", async (req, res) => {
         language: project.language,
         created_at: project.created_at,
         updated_at: project.updated_at,
-        pushed_at: project.pushed_at,
+        pushed_at: new Date(project.pushed_at),
       };
     });
 
-    res.status(200).json(projectsArray);
+    const sortProjectsByDate = createProjectsArray.sort(
+      (a, b) => b.pushed_at - a.pushed_at
+    );
+
+    console.log(sortProjectsByDate);
+
+    res.status(200).json(sortProjectsByDate);
   } catch (error) {
     console.error("/get-github-projects", error.message);
     res.status(500).json(`Server error getting sorted Github projects`);
