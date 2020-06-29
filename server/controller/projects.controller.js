@@ -8,7 +8,7 @@ const {
   deleteProject,
 } = require("../model/projects.db.js");
 
-// get all projects
+// get all projects from DB
 router.get("/projects", async (req, res) => {
   try {
     const response = await getAllProjects();
@@ -19,7 +19,7 @@ router.get("/projects", async (req, res) => {
   }
 });
 
-// upload a project
+// upload a project to DB
 router.post("/upload-project", async (req, res) => {
   try {
     const { title, description, githubUrl, demoUrl } = req.body;
@@ -39,7 +39,7 @@ router.post("/upload-project", async (req, res) => {
   }
 });
 
-// delete project by ID
+// delete project by ID from DB
 router.delete("/delete-project/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -53,6 +53,7 @@ router.delete("/delete-project/:id", async (req, res) => {
   }
 });
 
+// get all projects from Github
 router.get("/get-all-projects", async (req, res) => {
   try {
     const githubProjects = await getGithubProjects();
@@ -63,6 +64,7 @@ router.get("/get-all-projects", async (req, res) => {
   }
 });
 
+// get starred and sorted projects from github
 router.get("/get-github-projects", async (req, res) => {
   try {
     const githubProjects = await getGithubProjects();
