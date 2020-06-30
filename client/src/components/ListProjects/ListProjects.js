@@ -24,23 +24,15 @@ const style = {
 };
 
 const ListProjects = () => {
-  const [projects, setProjects] = useState({});
   const [githubProjects, setGithubProjects] = useState();
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      const projectsResponse = await ProjectAPI.getAllProjects();
-      setProjects(projectsResponse);
-      console.log(projectsResponse);
-    };
-
     const fetchGithubProjects = async () => {
       const githubProjectsResponse = await GithubAPI.getGithubProjects();
       setGithubProjects(githubProjectsResponse);
       console.log(githubProjectsResponse);
     };
 
-    fetchProjects();
     fetchGithubProjects();
   }, []);
 
