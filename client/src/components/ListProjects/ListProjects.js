@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import dayjs from "dayjs";
 
-import ProjectAPI from "../../utils/api/projects.api.js";
 import GithubAPI from "../../utils/api/github.api.js";
 
 const style = {
