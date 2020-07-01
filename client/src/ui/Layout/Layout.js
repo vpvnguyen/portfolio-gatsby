@@ -9,6 +9,11 @@ import Header from "../Header.js";
 import Navbar from "../../components/Navbar/Navbar.js";
 import Footer from "../Footer/Footer.js";
 
+const style = {
+  height: "100vh",
+  margin: "0 auto",
+};
+
 const Layout = ({ children }) => {
   return (
     <>
@@ -16,7 +21,7 @@ const Layout = ({ children }) => {
       <Header />
       <Navbar />
       <Container maxWidth="md">
-        <main>{children}</main>
+        <main style={style}>{children}</main>
       </Container>
       <Footer />
     </>
