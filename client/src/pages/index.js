@@ -10,9 +10,7 @@ import ListProjects from "../components/ListProjects/ListProjects.js";
 
 const style = {
   contentWrapper: {
-    height: "100vh", // fallback
-    // width: "100vw",
-    margin: "0 auto",
+    height: "100%",
   },
   defaultImage: {
     maxWidth: `300px`,
@@ -52,15 +50,13 @@ const IndexPage = () => (
       </div>
 
       <div style={style.sectionFour}>
-        <div>
-          <Link to="/page-2/">Go to page 2</Link>
-          <br />
-          <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-          <br />
-          <Link to="/time/">See Server Time</Link>
-          <br />
-          <Link to="/projects/">Projects</Link>
-        </div>
+        <Link to="/page-2/">Go to page 2</Link>
+        <br />
+        <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+        <br />
+        <Link to="/time/">See Server Time</Link>
+        <br />
+        <Link to="/projects/">Projects</Link>
       </div>
 
       <div style={style.sectionFive}>
