@@ -7,7 +7,6 @@ import { CssBaseline, Container } from "@material-ui/core";
 // components
 import Header from "../Header.js";
 import Navbar from "../../components/Navbar/Navbar.js";
-import Footer from "../Footer/Footer.js";
 
 const Layout = ({ children }) => {
   return (
@@ -18,7 +17,6 @@ const Layout = ({ children }) => {
       <Container maxWidth="md">
         <main>{children}</main>
       </Container>
-      <Footer />
     </>
   );
 };
