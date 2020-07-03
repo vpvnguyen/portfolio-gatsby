@@ -6,16 +6,14 @@ import GithubAPI from "../../utils/api/github.api.js";
 const style = {
   lineBreak: {
     margin: 40,
-    border: "none",
-    height: "1px",
+    height: ".05rem",
     /* Set the hr color */
     color: "#333" /* old IE */,
     backgroundColor: "#333" /* Modern Browsers */,
     opacity: 0.25,
   },
   projectDescription: {
-    paddingLeft: 15,
-    paddingRight: 15,
+    padding: "0 1rem 0 1rem",
   },
   projectMinorInfo: {
     fontSize: ".7rem",
