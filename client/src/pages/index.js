@@ -19,7 +19,7 @@ const style = {
     marginBottom: `1.45rem`,
   },
   sectionOne: {
-    height: "50%",
+    height: "89%",
   },
   sectionTwo: {
     height: "50%",
@@ -40,10 +40,10 @@ const IndexPage = () => (
     <div style={style.contentWrapper}>
       <div style={style.sectionOne}>
         <Welcome />
-        <hr />
       </div>
 
       <div style={style.sectionTwo}>
+        <hr />
         <Blog />
       </div>
 
