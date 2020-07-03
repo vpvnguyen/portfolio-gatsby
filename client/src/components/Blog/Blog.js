@@ -1,10 +1,6 @@
 import React from "react";
 
 const style = {
-  blogWrapper: {
-    border: "0.25px solid",
-    borderRadius: "20px",
-  },
   blogContent: {
     display: "flex",
     flexDirection: "column",
@@ -16,7 +12,7 @@ const style = {
 };
 const Blog = () => {
   return (
-    <div style={style.blogWrapper}>
+    <>
       <h1>This is my blog</h1>
       <div style={style.blogContent}>
         <hr style={style.blogLine} />
@@ -26,7 +22,7 @@ const Blog = () => {
         <h3>Post 2</h3>
         <p>Post 2 paragraph</p>
       </div>
-    </div>
+    </>
   );
 };
 
