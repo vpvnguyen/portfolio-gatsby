@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "portfolio-client",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Client side portfolio",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Vincent Nguyen <vpvnguyen@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
@@ -31,7 +31,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -p 3000",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
