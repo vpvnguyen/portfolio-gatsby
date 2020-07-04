@@ -44,8 +44,6 @@ const IndexPage = () => (
           <br />
           <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
           <br />
-          <Link to="/time/">See Server Time</Link>
-          <br />
           <Link to="/projects/">Projects</Link>
         </div>
       </div>
