@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useEffect } from "react";
-import dayjs from "dayjs";
+import React, { Fragment, useState, useEffect } from "react"
+import dayjs from "dayjs"
 
-import GithubAPI from "../../utils/api/github.api.js";
+import GithubAPI from "../utils/api/github.api.js"
 
 const style = {
   lineBreak: {
@@ -18,20 +18,20 @@ const style = {
   projectMinorInfo: {
     fontSize: ".7rem",
   },
-};
+}
 
 const ListProjects = () => {
-  const [githubProjects, setGithubProjects] = useState();
+  const [githubProjects, setGithubProjects] = useState()
 
   useEffect(() => {
     const fetchGithubProjects = async () => {
-      const githubProjectsResponse = await GithubAPI.getGithubProjects();
-      setGithubProjects(githubProjectsResponse);
-      console.log(githubProjectsResponse);
-    };
+      const githubProjectsResponse = await GithubAPI.getGithubProjects()
+      setGithubProjects(githubProjectsResponse)
+      console.log(githubProjectsResponse)
+    }
 
-    fetchGithubProjects();
-  }, []);
+    fetchGithubProjects()
+  }, [])
 
   return (
     <Fragment>
@@ -74,7 +74,7 @@ const ListProjects = () => {
         <h2>Loading Projects...</h2>
       )}
     </Fragment>
-  );
-};
+  )
+}
 
-export default ListProjects;
+export default ListProjects
