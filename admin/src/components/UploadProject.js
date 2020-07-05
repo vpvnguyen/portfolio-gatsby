@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import {
   FormControl,
   InputLabel,
   Input,
   FormHelperText,
   Button,
-} from "@material-ui/core";
+} from "@material-ui/core"
 
-import ProjectsAPI from "../../utils/api/projects.api.js";
+import ProjectsAPI from "../utils/api/projects.api.js"
 
 const style = {
   formGroup: {
@@ -20,29 +20,29 @@ const style = {
     justifyContent: "space-around",
     padding: "10px",
   },
-};
+}
 
 const initialState = {
   title: "",
   description: "",
   githubUrl: "",
   demoUrl: "",
-};
+}
 
 const UploadProject = () => {
   const [{ title, description, githubUrl, demoUrl }, setProject] = useState(
     initialState
-  );
+  )
 
   const handleChange = e => {
-    const { name, value } = e.target;
-    console.log(name, value);
-    setProject(prevState => ({ ...prevState, [name]: value }));
-  };
+    const { name, value } = e.target
+    console.log(name, value)
+    setProject(prevState => ({ ...prevState, [name]: value }))
+  }
 
   const handleSubmit = async e => {
-    e.preventDefault();
-    console.log("clicked submit");
+    e.preventDefault()
+    console.log("clicked submit")
 
     try {
       const projectData = {
@@ -50,22 +50,20 @@ const UploadProject = () => {
         description,
         githubUrl,
         demoUrl,
-      };
+      }
 
-      const uploadProjectResponse = await ProjectsAPI.uploadProject(
-        projectData
-      );
+      const uploadProjectResponse = await ProjectsAPI.uploadProject(projectData)
 
-      console.log("Project submitted", uploadProjectResponse);
+      console.log("Project submitted", uploadProjectResponse)
     } catch (error) {
-      console.error("Issue handling submit", error.message);
+      console.error("Issue handling submit", error.message)
     }
-  };
+  }
 
   const handleReset = () => {
-    setProject({ ...initialState });
-    console.log("reset");
-  };
+    setProject({ ...initialState })
+    console.log("reset")
+  }
 
   return (
     <div style={style.formGroup}>
@@ -131,7 +129,7 @@ const UploadProject = () => {
         <Button onClick={handleReset}>Reset</Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UploadProject;
+export default UploadProject
