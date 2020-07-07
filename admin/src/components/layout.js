@@ -15,6 +15,8 @@ import "./layout.css"
 const style = {
   page: {
     height: "100vh",
+    fontSize: "12px",
+    fontFamily: "arial",
   },
   panel: {
     margin: `0 auto`,
