@@ -37,6 +37,8 @@ const ListProjects = () => {
     <Fragment>
       <h1>Projects</h1>
 
+      {/* replace below to be data fetched from DB */}
+
       {githubProjects ? (
         githubProjects.map(project => (
           <div>
