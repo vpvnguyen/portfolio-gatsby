@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react"
+import { CircularProgress } from "@material-ui/core"
 import dayjs from "dayjs"
 
 import GithubAPI from "../utils/api/github.api.js"
@@ -14,9 +15,16 @@ const style = {
   },
   projectDescription: {
     padding: "0 1rem 0 1rem",
+    backgroundColor: "orange",
   },
   projectMinorInfo: {
     fontSize: ".7rem",
+  },
+  color: {
+    backgroundColor: "blue",
+    paddingBottom: "500px",
+    display: "block",
+    overflow: "auto",
   },
 }
 
@@ -34,7 +42,7 @@ const ListProjects = () => {
   }, [])
 
   return (
-    <Fragment>
+    <div style={style.color}>
       <h1>Projects</h1>
 
       {githubProjects ? (
@@ -71,9 +79,9 @@ const ListProjects = () => {
           </div>
         ))
       ) : (
-        <h2>Loading Projects...</h2>
+        <CircularProgress />
       )}
-    </Fragment>
+    </div>
   )
 }
 
