@@ -16,7 +16,7 @@ const style = {
     backgroundColor: "#EDEDED",
     height: "100vh",
     width: "90vw",
-    boxShadow: "-4px 4px 20px -6px rgba(0, 0, 0, 0.7)",
+    boxShadow: "-1px 4px 20px -6px rgba(0, 0, 0, 0.7)",
   },
   body: {
     display: "flex",
