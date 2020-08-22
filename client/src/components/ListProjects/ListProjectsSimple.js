@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Paper, Button } from "@material-ui/core";
-
+import Languages from "../ListProjects/Languages";
 import dayjs from "dayjs";
 
 import GithubAPI from "../../utils/api/github.api.js";
@@ -15,7 +15,6 @@ const style = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    // alignContent: "space-between",
     margin: "10px",
     padding: "10px",
     backgroundColor: "#EDEDED",
@@ -53,23 +52,25 @@ const ListProjects = () => {
       <h1>Projects</h1>
       <div style={style.tableContainer}>
         {githubProjects
-          ? githubProjects.map(row => (
+          ? githubProjects.map(project => (
               <Button
-                key={row.name}
+                key={project.name}
                 style={style.table}
-                href={row.html_url}
+                href={project.html_url}
                 target="_blank"
                 rel="noreferrer"
                 fullWidth
               >
                 <div style={style.left}>
-                  <h3>{row.name}</h3>
-                  <div style={style.subtext}>{row.description}</div>
+                  <h3>{project.name}</h3>
+                  <div style={style.subtext}>{project.description}</div>
                 </div>
                 <div style={style.right}>
-                  <div style={style.subtext}>{row.language}</div>
+                  <div style={style.subtext}>{project.language}</div>
+                  {/* TODO: query object props for languages */}
+                  {/* <Languages projectName={project.name} /> */}
                   <div style={style.subtext}>
-                    {dayjs(row.pushed_at).format("MMM/YYYY")}
+                    {dayjs(project.pushed_at).format("MMM/YYYY")}
                   </div>
                 </div>
               </Button>
