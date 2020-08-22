@@ -19,6 +19,8 @@ const style = {
     width: "80vw",
     boxShadow: "-1px 4px 20px -6px rgba(0, 0, 0, 0.7)",
     flexDirection: "column",
+    // padding: "20px 10px 10px 10px",
+    padding: "20px",
   },
 }
 
