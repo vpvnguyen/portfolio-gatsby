@@ -7,6 +7,7 @@ import Image from "../images/image.js";
 import Welcome from "../components/Welcome/Welcome.js";
 import Blog from "../components/Blog/Blog.js";
 import ListProjects from "../components/ListProjects/ListProjects.js";
+import ListProjectsSimple from "../components/ListProjects/ListProjectsSimple";
 import Footer from "../components/Footer/Footer.js";
 
 const style = {
@@ -35,7 +36,7 @@ const IndexPage = () => (
 
       <Blog style={style.content} />
 
-      <ListProjects style={style.content} />
+      <ListProjectsSimple style={style.content} />
 
       <div style={style.content}>
         <div style={style.defaultImage}>
