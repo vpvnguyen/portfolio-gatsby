@@ -8,9 +8,9 @@ const style = {
   page: {
     display: "grid",
     placeItems: "center",
-    backgroundColor: "#DADBD3",
+    backgroundColor: "#EDEDED",
     height: "100vh",
-    boxShadow: "-1px 4px 20px -6px rgba(0, 0, 0, 0.7)",
+    boxShadow: "-4px 4px 20px -6px rgba(0, 0, 0, 0.7)",
   },
   body: {
     display: "flex",
