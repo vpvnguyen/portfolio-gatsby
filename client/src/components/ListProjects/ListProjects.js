@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Paper, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import Languages from "../ListProjects/Languages";
 import dayjs from "dayjs";
 
 import GithubAPI from "../../utils/api/github.api.js";
 
 const style = {
-  tableContainer: {
+  container: {
     display: "flex",
     flexDirection: "column",
     fontFamily: "arial",
   },
-  table: {
+  body: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     margin: "10px",
     padding: "10px",
-    backgroundColor: "#EDEDED",
   },
   left: {
     display: "flex",
@@ -30,7 +29,7 @@ const style = {
     alignItems: "flex-end",
   },
   subtext: {
-    fontSize: ".75rem",
+    fontSize: ".7rem",
   },
 };
 
@@ -50,12 +49,12 @@ const ListProjects = () => {
   return (
     <>
       <h1>Projects</h1>
-      <div style={style.tableContainer}>
+      <div style={style.container}>
         {githubProjects
           ? githubProjects.map(project => (
               <Button
                 key={project.name}
-                style={style.table}
+                style={style.body}
                 href={project.html_url}
                 target="_blank"
                 rel="noreferrer"
