@@ -10,9 +10,11 @@ const style = {
     opacity: 0.25,
   },
 };
+
 const Blog = () => {
   return (
     <>
+      {/* TODO: create blog with gatsby plugin or call twitter API */}
       <h1>Blog</h1>
       <div style={style.blogContent}>
         <hr style={style.blogLine} />
