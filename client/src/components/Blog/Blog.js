@@ -13,7 +13,7 @@ const style = {
 const Blog = () => {
   return (
     <>
-      <h1>This is my blog</h1>
+      <h1>Blog</h1>
       <div style={style.blogContent}>
         <hr style={style.blogLine} />
         <h3>Post 1</h3>
