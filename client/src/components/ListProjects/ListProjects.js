@@ -1,22 +1,36 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Paper, Button } from "@material-ui/core";
+import Languages from "../ListProjects/Languages";
 import dayjs from "dayjs";
 
 import GithubAPI from "../../utils/api/github.api.js";
 
 const style = {
-  lineBreak: {
-    margin: 40,
-    height: ".05rem",
-    /* Set the hr color */
-    color: "#333" /* old IE */,
-    backgroundColor: "#333" /* Modern Browsers */,
-    opacity: 0.25,
+  tableContainer: {
+    display: "flex",
+    flexDirection: "column",
+    fontFamily: "arial",
   },
-  projectDescription: {
-    padding: "0 1rem 0 1rem",
+  table: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    margin: "10px",
+    padding: "10px",
+    backgroundColor: "#EDEDED",
   },
-  projectMinorInfo: {
-    fontSize: ".7rem",
+  left: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+  right: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-end",
+  },
+  subtext: {
+    fontSize: ".75rem",
   },
 };
 
@@ -26,7 +40,7 @@ const ListProjects = () => {
   useEffect(() => {
     const fetchGithubProjects = async () => {
       const githubProjectsResponse = await GithubAPI.getGithubProjects();
-      setGithubProjects(githubProjectsResponse);
+      await setGithubProjects(githubProjectsResponse);
       console.log(githubProjectsResponse);
     };
 
@@ -34,48 +48,34 @@ const ListProjects = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <h1>Projects</h1>
-
-      {/* replace below to be data fetched from DB */}
-
-      {githubProjects ? (
-        githubProjects.map(project => (
-          <div>
-            <h3>{project.name}</h3>
-
-            {project.description !== null && project.description !== "" ? (
-              <p style={style.projectDescription}>{project.description}</p>
-            ) : null}
-
-            {project.homepage !== null && project.homepage !== "" ? (
-              <div>
-                Demo:{" "}
-                <a href={project.homepage} target="_blank" rel="noreferrer">
-                  {project.homepage}
-                </a>
-              </div>
-            ) : null}
-
-            <div>
-              Repo:{" "}
-              <a href={project.html_url} target="_blank" rel="noreferrer">
-                {project.html_url}
-              </a>
-            </div>
-
-            <div style={style.projectMinorInfo}>
-              <p>{project.language}</p>
-              <p>Updated: {dayjs(project.pushed_at).format("MM-DD-YYYY")}</p>
-            </div>
-
-            <hr style={style.lineBreak} />
-          </div>
-        ))
-      ) : (
-        <h2>Loading Projects...</h2>
-      )}
-    </Fragment>
+      <div style={style.tableContainer}>
+        {githubProjects
+          ? githubProjects.map(project => (
+              <Button
+                key={project.name}
+                style={style.table}
+                href={project.html_url}
+                target="_blank"
+                rel="noreferrer"
+                fullWidth
+              >
+                <div style={style.left}>
+                  <h3>{project.name}</h3>
+                  <div style={style.subtext}>{project.description}</div>
+                </div>
+                <div style={style.right}>
+                  <Languages style={style.subtext} projectName={project.name} />
+                  <div style={style.subtext}>
+                    {dayjs(project.pushed_at).format("MMM/YYYY")}
+                  </div>
+                </div>
+              </Button>
+            ))
+          : `Loading...`}
+      </div>
+    </>
   );
 };
 
