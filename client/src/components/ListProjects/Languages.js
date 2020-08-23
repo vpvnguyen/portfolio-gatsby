@@ -3,16 +3,12 @@ import GithubAPI from "../../utils/api/github.api";
 
 const style = {
   languages: {
-    fontSize: ".75rem",
+    fontSize: ".75em",
     marginLeft: "3px",
     padding: "5px",
     borderRadius: "20px",
     border: "1px solid #03dac5",
     background: "white",
-    // textDecorationColor: "#EA215A",
-    // textDecorationThickness: ".125em",
-    // textUnderlineOffset: "1.5px",
-    // textDecorationStyle: "double",
   },
 };
 
@@ -22,7 +18,6 @@ const Languages = ({ projectName }) => {
   useEffect(() => {
     const fetchGithubProjectLanguage = async projectName => {
       const response = await GithubAPI.getProjectLanguages(projectName);
-      console.log(Object.keys(response));
       setLanguages(Object.keys(response));
     };
 
