@@ -40,7 +40,7 @@ const style = {
   },
 };
 
-const Navbar = () => {
+const Navbar = ({ name }) => {
   return (
     <div style={style.root}>
       {/* slight shadow effect for navbar when scrolling */}
@@ -50,7 +50,7 @@ const Navbar = () => {
           <Toolbar style={style.navContainer}>
             <Button style={style.title} disableRipple>
               <Link to="/" style={style.title}>
-                Vincent Nguyen
+                {name}
               </Link>
             </Button>
             <Social />
