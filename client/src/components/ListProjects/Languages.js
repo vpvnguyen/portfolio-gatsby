@@ -27,9 +27,9 @@ const Languages = ({ projectName }) => {
   return (
     <>
       {languages ? (
-        <div key={`${projectName}-${languages}`}>
+        <div>
           {languages.map((language, index) => (
-            <span key={language[index]} style={style.languages}>
+            <span key={`${projectName}-${index}`} style={style.languages}>
               {language}
             </span>
           ))}
