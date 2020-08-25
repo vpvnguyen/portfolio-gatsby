@@ -3,6 +3,7 @@ module.exports = {
     title: `Vincent Nguyen`,
     description: `Vincent Nguyen's Portfolio.`,
     author: `Vincent`,
+    github: `vpvnguyen`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
