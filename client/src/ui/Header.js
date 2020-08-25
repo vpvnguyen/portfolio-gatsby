@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-const Header = () => {
-  return <Helmet title="Vincent Nguyen" />;
+const Header = ({ title }) => {
+  return <Helmet title={title} />;
 };
 
 export default Header;
