@@ -24,20 +24,21 @@ const style = {
   },
 };
 
-const IndexPage = () => (
-  <Layout>
-    <div style={style.page}>
-      <div style={style.landing}>
-        <Welcome />
+const IndexPage = () => {
+  return (
+    <Layout>
+      <div style={style.page}>
+        <div style={style.landing}>
+          <Welcome />
+        </div>
+
+        <Blog style={style.content} />
+
+        <ListProjects style={style.content} />
+
+        <Footer />
       </div>
-
-      <Blog style={style.content} />
-
-      <ListProjects style={style.content} />
-
-      <Footer />
-    </div>
-  </Layout>
-);
-
+    </Layout>
+  );
+};
 export default IndexPage;
