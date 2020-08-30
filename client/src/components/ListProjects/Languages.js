@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GithubAPI from "../../utils/api/github.api";
+import { CircularProgress } from "@material-ui/core";
 
 const style = {
   languages: {
@@ -35,7 +36,7 @@ const Languages = ({ projectName }) => {
           ))}
         </div>
       ) : (
-        `Loading...`
+        <CircularProgress />
       )}
     </>
   );
