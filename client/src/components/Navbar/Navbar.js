@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery } from "gatsby";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
@@ -41,6 +41,16 @@ const style = {
 };
 
 const Navbar = ({ name }) => {
+  const data = useStaticQuery(graphql`
+    query siteResumeQuery {
+      site {
+        siteMetadata {
+          resume
+        }
+      }
+    }
+  `);
+
   return (
     <div style={style.root}>
       {/* slight shadow effect for navbar when scrolling */}
@@ -57,7 +67,7 @@ const Navbar = ({ name }) => {
             <Button color="inherit">
               <a
                 style={style.resume}
-                href="https://docs.google.com/document/d/1PTogfVNXdTCEIQor0yN4gXIcFEKxHRFzGIlRl4287xM/edit?usp=sharing"
+                href={data.site.siteMetadata.resume}
                 target="_blank"
                 rel="noreferrer"
                 download
