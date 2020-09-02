@@ -6,16 +6,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
 // theme
 import theme from "../../ui/theme.js";
-
-const socialMedia = {
-  user: "vpvnguyen",
-  github: {
-    url: user => `https://www.github.com/${user}`,
-  },
-  linkedin: {
-    url: user => `https://www.linkedin.com/in/${user}`,
-  },
-};
+import { useStaticQuery, graphql } from "gatsby";
 
 const style = {
   fontSize: "1.4em",
@@ -25,11 +16,26 @@ const style = {
 };
 
 const Social = () => {
+  const data = useStaticQuery(graphql`
+    query siteSocialQuery {
+      site {
+        siteMetadata {
+          social {
+            github
+            linkedin
+          }
+        }
+      }
+    }
+  `);
+
+  console.log("siteSocialQuery", data);
+
   return (
     <>
       <a
         style={style}
-        href={socialMedia.github.url(socialMedia.user)}
+        href={`https://www.github.com/${data.site.siteMetadata.social.github}`}
         rel="noreferrer"
         target="_BLANK"
       >
@@ -37,7 +43,7 @@ const Social = () => {
       </a>
       <a
         style={style}
-        href={socialMedia.linkedin.url(socialMedia.user)}
+        href={`https://www.linkedin.com/in/${data.site.siteMetadata.social.linkedin}`}
         rel="noreferrer"
         target="_BLANK"
       >
