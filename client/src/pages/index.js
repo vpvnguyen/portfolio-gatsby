@@ -1,7 +1,5 @@
 import React from "react";
-
 import Layout from "../ui/Layout/Layout.js";
-
 import Welcome from "../components/Welcome/Welcome.js";
 import Blog from "../components/Blog/Blog.js";
 import ListProjects from "../components/ListProjects/ListProjects.js";
