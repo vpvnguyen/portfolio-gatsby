@@ -9,6 +9,7 @@ module.exports = {
       github: `vpvnguyen`,
       linkedin: `vpvnguyen`,
     },
+    resume: `https://docs.google.com/document/d/1PTogfVNXdTCEIQor0yN4gXIcFEKxHRFzGIlRl4287xM/edit?usp=sharing`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
