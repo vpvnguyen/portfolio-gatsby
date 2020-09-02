@@ -1,4 +1,5 @@
 import React from "react";
+import LayoutStyle from "../../ui/Layout/Layout.style";
 
 const style = {
   blogContent: {
@@ -13,7 +14,7 @@ const style = {
 
 const Blog = () => {
   return (
-    <>
+    <LayoutStyle>
       {/* TODO: create blog with gatsby plugin or call twitter API */}
       <h1>Blog</h1>
       <div style={style.blogContent}>
@@ -24,7 +25,7 @@ const Blog = () => {
         <h3>Post 2</h3>
         <p>Post 2 paragraph</p>
       </div>
-    </>
+    </LayoutStyle>
   );
 };
 

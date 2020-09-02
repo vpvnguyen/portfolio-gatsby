@@ -1,5 +1,6 @@
 import React from "react";
 import BackgroundImage from "../../hb.jpg";
+import LayoutStyle from "../../ui/Layout/Layout.style";
 
 const style = {
   background: {
@@ -23,12 +24,14 @@ const style = {
 const Welcome = () => {
   return (
     <div style={style.background}>
-      <h1>Welcome!</h1>
-      <h1>Hi, I'm Vincent :)</h1>
-      <p>Welcome to my Portfolio.</p>
-      <p>Great things are built here.</p>
+      <LayoutStyle>
+        <h1>Welcome!</h1>
+        <h1>Hi, I'm Vincent :)</h1>
+        <p>Welcome to my Portfolio.</p>
+        <p>Great things are built here.</p>
 
-      <AboutMe />
+        <AboutMe />
+      </LayoutStyle>
     </div>
   );
 };

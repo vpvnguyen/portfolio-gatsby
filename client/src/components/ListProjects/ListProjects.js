@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, CircularProgress } from "@material-ui/core";
+import LayoutStyle from "../../ui/Layout/Layout.style";
 import Languages from "../ListProjects/Languages";
 import dayjs from "dayjs";
 
@@ -52,7 +53,7 @@ const ListProjects = () => {
   }, []);
 
   return (
-    <>
+    <LayoutStyle>
       <h1>Projects</h1>
       <div style={style.container}>
         {githubProjects ? (
@@ -83,7 +84,7 @@ const ListProjects = () => {
           </div>
         )}
       </div>
-    </>
+    </LayoutStyle>
   );
 };
 
