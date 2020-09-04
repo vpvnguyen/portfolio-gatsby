@@ -4,7 +4,13 @@ import BackgroundImage from "../hb.jpg";
 
 const style = {
   background: {
-    backgroundImage: `url(${BackgroundImage})`,
+    /* top, transparent black, faked with gradient */
+    backgroundImage: `
+      linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7)
+      ),
+      url(${BackgroundImage})`,
     /* Background image is centered vertically and horizontally at all times */
     backgroundPosition: "center center",
     /* Background image doesn't tile */
