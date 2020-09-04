@@ -4,11 +4,17 @@ import PropTypes from "prop-types";
 // material ui
 import { Container } from "@material-ui/core";
 
+const style = {
+  container: {
+    fontSize: "16px",
+  },
+};
+
 const LayoutStyle = ({ children }) => {
   return (
     <>
       <Container maxWidth="md">
-        <main>{children}</main>
+        <main style={style.container}>{children}</main>
       </Container>
     </>
   );
