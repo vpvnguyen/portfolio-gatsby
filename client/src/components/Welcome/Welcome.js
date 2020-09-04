@@ -5,8 +5,7 @@ import Background from "../../ui/Background";
 const style = {
   container: {
     color: "#FAFAFA",
-    marginTop: "-20px",
-    padding: "100px 0px 200px 0",
+    padding: "5rem 0rem 10rem 0rem",
   },
 };
 
