@@ -11,8 +11,8 @@ import { useStaticQuery, graphql } from "gatsby";
 const style = {
   fontSize: "1.4em",
   margin: "0.2em",
-  backgroundColor: theme.primary,
-  color: theme.secondary,
+  backgroundColor: theme.color.dark,
+  color: theme.color.accent,
 };
 
 const Social = () => {
