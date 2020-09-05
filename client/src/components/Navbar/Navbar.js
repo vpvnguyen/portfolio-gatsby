@@ -15,27 +15,26 @@ import ElevationScroll from "./Navbar.effects.js";
 
 const style = {
   root: {
-    backgroundColor: theme.primary,
-    color: theme.secondary,
+    backgroundColor: theme.color.dark,
     height: "70px",
   },
   navContainer: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: theme.primary,
-    color: theme.secondary,
+    backgroundColor: theme.color.dark,
+    color: theme.color.accent,
   },
   title: {
     flexGrow: 1,
-    color: theme.secondary,
+    color: theme.color.accent,
     "&:hover": {
       backgroundColor: "transparent",
     },
     textDecoration: "none" /* no underline */,
   },
   resume: {
-    color: theme.secondary,
+    color: theme.color.accent,
     textDecoration: "none" /* no underline */,
   },
 };
