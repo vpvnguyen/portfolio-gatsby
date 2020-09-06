@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useStaticQuery } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
