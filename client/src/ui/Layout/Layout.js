@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import { CssBaseline, Container } from "@material-ui/core";
+
+import { CssBaseline } from "@material-ui/core";
 
 import Header from "../Header.js";
 import Navbar from "../../components/Navbar/Navbar.js";
@@ -22,9 +23,7 @@ const Layout = ({ children }) => {
       <CssBaseline />
       <Header title={data.site.siteMetadata.title} />
       <Navbar name={data.site.siteMetadata.title} />
-      <Container maxWidth="md">
-        <main>{children}</main>
-      </Container>
+      <main>{children}</main>
     </>
   );
 };
