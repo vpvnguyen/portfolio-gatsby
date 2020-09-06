@@ -9,10 +9,6 @@ const style = {
   page: {
     height: "100vh",
   },
-  defaultImage: {
-    maxWidth: `300px`,
-    marginBottom: `1.45rem`,
-  },
   landing: {
     height: "89%",
   },
@@ -29,11 +25,8 @@ const IndexPage = () => {
         <div style={style.landing}>
           <Welcome />
         </div>
-
         <Blog style={style.content} />
-
         <ListProjects style={style.content} />
-
         <Footer />
       </div>
     </Layout>
