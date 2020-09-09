@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import LayoutStyle from "../../ui/Layout/Layout.style";
+import useScript from "../../utils/hooks/useScript";
 
 const style = {
   blogContent: {
@@ -10,21 +11,6 @@ const style = {
     width: "70%",
     opacity: 0.25,
   },
-};
-
-const useScript = url => {
-  useEffect(() => {
-    const script = document.createElement("script");
-
-    script.src = url;
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [url]);
 };
 
 const Blog = () => {
