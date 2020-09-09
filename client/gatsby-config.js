@@ -5,7 +5,10 @@ module.exports = {
     author: `Vincent`,
     github: `vpvnguyen`,
     social: {
-      twitter: `vpvnguyen`,
+      twitter: {
+        url: `https://twitter.com/Vincent33567189?ref_src=twsrc%5Etfw`,
+        user: `Vincent33567189`,
+      },
       github: `vpvnguyen`,
       linkedin: `vpvnguyen`,
     },
