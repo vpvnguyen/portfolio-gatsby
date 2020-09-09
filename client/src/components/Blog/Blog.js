@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LayoutStyle from "../../ui/Layout/Layout.style";
 
 const style = {
@@ -12,7 +12,23 @@ const style = {
   },
 };
 
+const useScript = url => {
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src = url;
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [url]);
+};
+
 const Blog = () => {
+  useScript("https://platform.twitter.com/widgets.js");
   return (
     <LayoutStyle>
       {/* TODO: create blog with gatsby plugin or call twitter API */}
@@ -27,11 +43,11 @@ const Blog = () => {
         >
           Tweets by Vincent33567189
         </a>{" "}
-        <script
+        {/* <script
           async
           src="https://platform.twitter.com/widgets.js"
           charset="utf-8"
-        ></script>
+        ></script> */}
         <hr style={style.blogLine} />
         <h3>Post 2</h3>
         <p>Post 2 paragraph</p>
