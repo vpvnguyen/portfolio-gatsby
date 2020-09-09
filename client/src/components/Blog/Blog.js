@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import LayoutStyle from "../../ui/Layout/Layout.style";
 import useScript from "../../utils/hooks/useScript";
 
@@ -13,30 +14,41 @@ const style = {
   },
 };
 
+const EmbedTwitterTimeline = (url, user) => (
+  <a class="twitter-timeline" href={url}>
+    Tweets by {user}
+  </a>
+);
+
 const Blog = () => {
+  const data = useStaticQuery(graphql`
+    query siteTwitterQuery {
+      site {
+        siteMetadata {
+          social {
+            twitter {
+              url
+              user
+            }
+          }
+        }
+      }
+    }
+  `);
+
   useScript("https://platform.twitter.com/widgets.js");
   return (
     <LayoutStyle>
-      {/* TODO: create blog with gatsby plugin or call twitter API */}
       <h1>Blog</h1>
       <div style={style.blogContent}>
         <hr style={style.blogLine} />
-        <h3>Post 1</h3>
-        <p>Post 1 paragraph</p>
-        <a
-          class="twitter-timeline"
-          href="https://twitter.com/Vincent33567189?ref_src=twsrc%5Etfw"
-        >
-          Tweets by Vincent33567189
-        </a>{" "}
-        {/* <script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          charset="utf-8"
-        ></script> */}
+
+        {EmbedTwitterTimeline(
+          data.site.siteMetadata.social.twitter.url,
+          data.site.siteMetadata.social.twitter.user
+        )}
+
         <hr style={style.blogLine} />
-        <h3>Post 2</h3>
-        <p>Post 2 paragraph</p>
       </div>
     </LayoutStyle>
   );
