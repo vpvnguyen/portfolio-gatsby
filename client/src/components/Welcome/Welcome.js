@@ -4,7 +4,7 @@ import Background from "../../ui/Background";
 
 const style = {
   container: {
-    color: "#FAFAFA",
+    color: "#ffffff",
     padding: "5rem 0rem 10rem 0rem",
   },
 };
