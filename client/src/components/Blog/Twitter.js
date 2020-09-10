@@ -5,15 +5,10 @@ import LayoutStyle from "../../ui/Layout/Layout.style";
 
 const style = {
   container: {
-    // padding: "40px",
     display: "flex",
     maxWidth: "50%",
     justifyContent: "center",
     alignItems: "center",
-    // background: "#fafafa",
-  },
-  embedColor: {
-    background: "#fafafa !important",
   },
 };
 const EmbedTwitterTimeline = (url, user) => {
@@ -39,7 +34,6 @@ const EmbedTwitterTimeline = (url, user) => {
         <a
           class="twitter-timeline"
           href={data.site.siteMetadata.social.twitter.url}
-          style={style.embedColor}
         >
           Tweets by {data.site.siteMetadata.social.twitter.user}
         </a>
