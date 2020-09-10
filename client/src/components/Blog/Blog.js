@@ -2,11 +2,15 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import LayoutStyle from "../../ui/Layout/Layout.style";
 import useScript from "../../utils/hooks/useScript";
+import Twitter from "./Twitter";
 
 const style = {
   blogContent: {
     display: "flex",
-    flexDirection: "column",
+    // flexDirection: "column",
+    justifyContent: "center",
+    // alignItems: "center",
+    width: "75%",
   },
   blogLine: {
     width: "70%",
@@ -14,41 +18,43 @@ const style = {
   },
 };
 
-const EmbedTwitterTimeline = (url, user) => (
-  <a class="twitter-timeline" href={url}>
-    Tweets by {user}
-  </a>
-);
+// const EmbedTwitterTimeline = (url, user) => (
+//   <a class="twitter-timeline" href={url}>
+//     Tweets by {user}
+//   </a>
+// );
 
 const Blog = () => {
-  const data = useStaticQuery(graphql`
-    query siteTwitterQuery {
-      site {
-        siteMetadata {
-          social {
-            twitter {
-              url
-              user
-            }
-          }
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query siteTwitterQuery {
+  //     site {
+  //       siteMetadata {
+  //         social {
+  //           twitter {
+  //             url
+  //             user
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
-  useScript("https://platform.twitter.com/widgets.js");
+  // useScript("https://platform.twitter.com/widgets.js");
   return (
     <LayoutStyle>
       <h1>Blog</h1>
       <div style={style.blogContent}>
-        <hr style={style.blogLine} />
+        {/* <hr style={style.blogLine} /> */}
 
-        {EmbedTwitterTimeline(
+        {/* {EmbedTwitterTimeline(
           data.site.siteMetadata.social.twitter.url,
           data.site.siteMetadata.social.twitter.user
-        )}
+        )} */}
 
-        <hr style={style.blogLine} />
+        <Twitter />
+
+        {/* <hr style={style.blogLine} /> */}
       </div>
     </LayoutStyle>
   );
