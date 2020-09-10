@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import BackgroundImage from "../hb.jpg";
+import theme from "./theme";
 
 const style = {
   background: {
@@ -23,7 +24,7 @@ const style = {
     backgroundSize: "cover",
     /* Set a background color that will be displayed
          while the background image is loading */
-    backgroundColor: "#fafafa",
+    backgroundColor: theme.color.light,
   },
 };
 
