@@ -8,7 +8,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api", require("./controller/projects.controller"));
-app.use("/api", require("./controller/twitter.controller"));
 
 app.get("/", async (req, res) => {
   try {
