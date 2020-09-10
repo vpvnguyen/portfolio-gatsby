@@ -1,24 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// material ui
-import { Container } from "@material-ui/core";
-
 const style = {
   container: {
     fontSize: "16px",
+    margin: "auto",
+    padding: "1em",
   },
 };
 
-const LayoutStyle = ({ children }) => {
-  return (
-    <>
-      <Container maxWidth="md">
-        <main style={style.container}>{children}</main>
-      </Container>
-    </>
-  );
-};
+const LayoutStyle = ({ children }) => (
+  <main style={style.container}>{children}</main>
+);
 
 LayoutStyle.propTypes = {
   children: PropTypes.node.isRequired,
