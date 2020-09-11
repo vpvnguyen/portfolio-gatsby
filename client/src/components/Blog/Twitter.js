@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import useScript from "../../utils/hooks/useScript";
 import LayoutStyle from "../../ui/Layout/Layout.style";
+import theme from "../../ui/theme";
 
 const EmbedTwitterTimeline = (url, user) => {
   const data = useStaticQuery(graphql`
@@ -22,12 +23,11 @@ const EmbedTwitterTimeline = (url, user) => {
   useScript("https://platform.twitter.com/widgets.js");
   return (
     <LayoutStyle>
+      <h1 style={theme.h1}>Tweets</h1>
       <a
         class="twitter-timeline"
         href={data.site.siteMetadata.social.twitter.url}
-      >
-        Tweets by {data.site.siteMetadata.social.twitter.user}
-      </a>
+      ></a>
     </LayoutStyle>
   );
 };
