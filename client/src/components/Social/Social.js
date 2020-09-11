@@ -1,12 +1,9 @@
 import React from "react";
-
-// social icons
+import { useStaticQuery, graphql } from "gatsby";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
-// theme
 import theme from "../../ui/theme.js";
-import { useStaticQuery, graphql } from "gatsby";
 
 const style = {
   fontSize: "1.4em",
@@ -28,8 +25,6 @@ const Social = () => {
       }
     }
   `);
-
-  console.log("siteSocialQuery", data);
 
   return (
     <>
