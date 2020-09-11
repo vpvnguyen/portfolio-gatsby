@@ -1,12 +1,12 @@
 const theme = {
   color: {
-    light: "#ffffff",
+    light: "#FFFFFF",
     dark: "#282828",
     accent: "#03DAC5",
   },
   languages: {
     default: { color: "black", border: "#60656C", background: "#EEEEEE" },
-    html: { color: "black", border: "#FFF4E6", background: "#fff0dd" },
+    html: { color: "black", border: "#FFF4E6", background: "#fff0DD" },
     css: { color: "black", border: "#E7F5FF", background: "#E7F5FF" },
     javascript: { color: "black", border: "#FFF3BF", background: "#FFF3BF" },
     typescript: { color: "black", border: "#00273F", background: "#D5E2EC" },
@@ -24,9 +24,6 @@ const theme = {
   },
   h1: {
     textDecoration: "underline #03DAC5",
-    // textDecorationColor: "#03DAC5",
-    // textDecorationThickness: "1000px",
-    // textUnderlineOffset: "30px",
   },
 };
 
