@@ -1,10 +1,18 @@
 import React from "react";
 import LayoutStyle from "../../ui/Layout/Layout.style";
+import AboutMe from "../Welcome/AboutMe";
 
 const style = {
   container: {
     color: "#ffffff",
     padding: "5rem 0rem 10rem 0rem",
+  },
+  landingMessage: {
+    padding: "5rem",
+  },
+  aboutMe: {
+    paddingTop: "5rem",
+    paddingBottom: "5rem",
   },
 };
 
@@ -12,29 +20,15 @@ const Welcome = () => {
   return (
     <LayoutStyle>
       <div style={style.container}>
-        <h1>Welcome!</h1>
-        <h1>Hi, I'm Vincent :)</h1>
-        <p>Welcome to my Portfolio.</p>
-        <p>Great things are built here.</p>
-        <p>Great things are built here.</p>
-        <p>Great things are built here.</p>
-        <p>Great things are built here.</p>
-        <p>Great things are built here.</p>
-        <p>Great things are built here.</p>
-        <p>Great things are built here.</p>
-        <p>Great things are built here.</p>
-        <p>Great things are built here.</p>
-        <AboutMe />
+        <div style={style.landingMessage}>
+          <h1>Hi, I'm Vincent :)</h1>
+          <h1>I enjoy breaking and building things.</h1>
+        </div>
+        <div style={style.aboutMe}>
+          <AboutMe />
+        </div>
       </div>
     </LayoutStyle>
-  );
-};
-
-const AboutMe = () => {
-  return (
-    <>
-      <h1>About Me Header</h1>
-    </>
   );
 };
 
