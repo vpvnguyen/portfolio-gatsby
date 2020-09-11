@@ -19,8 +19,8 @@ const GithubAPI = {
       );
       return response.data;
     } catch (error) {
-      console.error(error.message);
-      return console.log("Issue fetching Github Project languages");
+      console.error("Issue fetching Github Project languages", error.message);
+      return null;
     }
   },
 };
