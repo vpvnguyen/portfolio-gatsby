@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Button, CircularProgress } from "@material-ui/core";
+import dayjs from "dayjs";
 import LayoutStyle from "../../ui/Layout/Layout.style";
 import Languages from "../ListProjects/Languages";
-import dayjs from "dayjs";
-
+import theme from "../../ui/theme";
 import GithubAPI from "../../utils/api/github.api.js";
 
 const style = {
@@ -53,7 +53,7 @@ const ListProjects = () => {
 
   return (
     <LayoutStyle>
-      <h1>Projects</h1>
+      <h1 style={theme.h1}>Projects</h1>
       <div style={style.container}>
         {githubProjects ? (
           githubProjects.map(project => (
