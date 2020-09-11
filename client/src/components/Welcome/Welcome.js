@@ -1,6 +1,7 @@
 import React from "react";
 import LayoutStyle from "../../ui/Layout/Layout.style";
 import AboutMe from "../Welcome/AboutMe";
+import theme from "../../ui/theme";
 
 const style = {
   container: {
@@ -21,7 +22,7 @@ const Welcome = () => {
     <LayoutStyle>
       <div style={style.container}>
         <div style={style.landingMessage}>
-          <h1>Hi, I'm Vincent :)</h1>
+          <h1 style={theme.h1}>Hi, I'm Vincent :)</h1>
           <h1>I enjoy breaking and building things.</h1>
         </div>
         <div style={style.aboutMe}>
