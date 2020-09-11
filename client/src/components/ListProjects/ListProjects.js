@@ -46,7 +46,6 @@ const ListProjects = () => {
     const fetchGithubProjects = async () => {
       const githubProjectsResponse = await GithubAPI.getGithubProjects();
       await setGithubProjects(githubProjectsResponse);
-      console.log(githubProjectsResponse);
     };
 
     fetchGithubProjects();
