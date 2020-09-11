@@ -22,6 +22,12 @@ const theme = {
     sql: { color: "black", border: "#FFD43B", background: "#EEEEEE" },
     tsql: { color: "black", border: "#00273F", background: "#EEEEEE" },
   },
+  h1: {
+    textDecoration: "underline #03DAC5",
+    // textDecorationColor: "#03DAC5",
+    // textDecorationThickness: "1000px",
+    // textUnderlineOffset: "30px",
+  },
 };
 
 export default theme;
