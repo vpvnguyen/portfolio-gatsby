@@ -9,12 +9,18 @@ const Languages = ({ projectName }) => {
 
   useEffect(() => {
     const fetchGithubProjectLanguage = async projectName => {
-      const githubLanguages = await GithubAPI.getProjectLanguages(projectName);
-      const languagesLowerCase = Object.keys(githubLanguages).map(value =>
-        value.toLowerCase()
-      );
-      const languageArray = await mapLanguageStyle(languagesLowerCase);
-      setLanguages(languageArray);
+      try {
+        const githubLanguages = await GithubAPI.getProjectLanguages(
+          projectName
+        );
+        const languagesLowerCase = Object.keys(githubLanguages).map(value =>
+          value.toLowerCase()
+        );
+        const languageArray = await mapLanguageStyle(languagesLowerCase);
+        setLanguages(languageArray);
+      } catch (error) {
+        console.error("There is an error fetching github languages");
+      }
     };
 
     const mapLanguageStyle = languageArray => {
