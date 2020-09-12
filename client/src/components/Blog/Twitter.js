@@ -25,7 +25,7 @@ const EmbedTwitterTimeline = (url, user) => {
     <LayoutStyle>
       <h1 style={theme.h1}>Tweets</h1>
       <a
-        class="twitter-timeline"
+        className="twitter-timeline"
         href={data.site.siteMetadata.social.twitter.url}
       ></a>
     </LayoutStyle>
