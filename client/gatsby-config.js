@@ -3,7 +3,6 @@ module.exports = {
     title: `Vincent Nguyen`,
     description: `Vincent Nguyen's Portfolio.`,
     author: `Vincent`,
-    github: `vpvnguyen`,
     social: {
       twitter: {
         url: `https://twitter.com/Vincent33567189?ref_src=twsrc%5Etfw`,
