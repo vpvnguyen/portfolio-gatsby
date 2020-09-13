@@ -1,8 +1,5 @@
 import axios from "axios";
 
-const githubUrl = "https://api.github.com";
-const githubUser = "vpvnguyen";
-
 const GithubAPI = {
   fetchGithubProjects: async (url, user) => {
     try {
