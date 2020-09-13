@@ -44,7 +44,7 @@ const ListProjects = () => {
 
   useEffect(() => {
     const fetchGithubProjects = async () => {
-      const githubProjectsResponse = await GithubAPI.getGithubProjects();
+      const githubProjectsResponse = await GithubAPI.fetchGithubProjects();
       await setGithubProjects(githubProjectsResponse);
     };
 
