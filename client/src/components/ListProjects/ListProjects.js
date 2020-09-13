@@ -80,7 +80,7 @@ const ListProjects = () => {
             <Button
               key={project.name}
               style={style.body}
-              href={project.html_url}
+              href={project.homepage || project.html_url}
               target="_blank"
               rel="noreferrer"
               fullWidth
