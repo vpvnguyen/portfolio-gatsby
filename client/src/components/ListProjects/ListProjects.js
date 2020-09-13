@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import { Button, CircularProgress } from "@material-ui/core";
 import dayjs from "dayjs";
 import LayoutStyle from "../../ui/Layout/Layout.style";
@@ -40,15 +41,36 @@ const style = {
 };
 
 const ListProjects = () => {
+  const data = useStaticQuery(graphql`
+    query siteGithubApiQuery {
+      site {
+        siteMetadata {
+          api {
+            github {
+              url
+              user
+            }
+          }
+        }
+      }
+    }
+  `);
+
   const [githubProjects, setGithubProjects] = useState();
 
   useEffect(() => {
-    const fetchGithubProjects = async () => {
-      const githubProjectsResponse = await GithubAPI.fetchGithubProjects();
+    const fetchGithubProjects = async (url, user) => {
+      const githubProjectsResponse = await GithubAPI.fetchGithubProjects(
+        url,
+        user
+      );
       await setGithubProjects(githubProjectsResponse);
     };
 
-    fetchGithubProjects();
+    fetchGithubProjects(
+      data.site.siteMetadata.api.github.url,
+      data.site.siteMetadata.api.github.user
+    );
   }, []);
 
   return (
@@ -70,7 +92,12 @@ const ListProjects = () => {
                 <div style={style.subtext}>{project.description}</div>
               </div>
               <div style={style.right}>
-                <Languages style={style.subtext} projectName={project.name} />
+                <Languages
+                  style={style.subtext}
+                  url={data.site.siteMetadata.api.github.url}
+                  user={data.site.siteMetadata.api.github.user}
+                  projectName={project.name}
+                />
                 <div style={style.subtext}>
                   {dayjs(project.pushed_at).format("MMM/YYYY")}
                 </div>
