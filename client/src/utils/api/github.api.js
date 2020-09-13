@@ -4,11 +4,11 @@ const githubUrl = "https://api.github.com";
 const githubUser = "vpvnguyen";
 
 const GithubAPI = {
-  fetchGithubProjects: async () => {
+  fetchGithubProjects: async (url, user) => {
     try {
       // get repos; 30 results per page; set per_page=100 to query for 100 pages;
       const githubProjects = await axios.get(
-        `${githubUrl}/users/${githubUser}/repos?per_page=100`
+        `${url}/users/${user}/repos?per_page=100`
       );
 
       const filteredStarredProjects = githubProjects.data.reduce(
@@ -43,10 +43,10 @@ const GithubAPI = {
       return new Error("Issue fetching github projects");
     }
   },
-  getProjectLanguages: async projectName => {
+  getProjectLanguages: async (url, user, projectName) => {
     try {
       const response = await axios.get(
-        `${githubUrl}/repos/${githubUser}/${projectName}/languages`
+        `${url}/repos/${user}/${projectName}/languages`
       );
       return response.data;
     } catch (error) {
