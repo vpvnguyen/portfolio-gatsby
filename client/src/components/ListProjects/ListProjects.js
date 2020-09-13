@@ -9,8 +9,6 @@ import GithubAPI from "../../utils/api/github.api.js";
 
 const style = {
   loader: {
-    display: "flex",
-    justifyContent: "center",
     padding: "40px",
   },
   container: {
