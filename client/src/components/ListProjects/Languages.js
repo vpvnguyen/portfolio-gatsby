@@ -4,13 +4,15 @@ import { CircularProgress } from "@material-ui/core";
 
 import theme from "../../ui/theme";
 
-const Languages = ({ projectName }) => {
+const Languages = ({ url, user, projectName }) => {
   const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
-    const fetchGithubProjectLanguage = async projectName => {
+    const fetchGithubProjectLanguage = async (url, user, projectName) => {
       try {
         const githubLanguages = await GithubAPI.getProjectLanguages(
+          url,
+          user,
           projectName
         );
         const languagesLowerCase = Object.keys(githubLanguages).map(value =>
@@ -50,7 +52,7 @@ const Languages = ({ projectName }) => {
         return { name: languageArray[index], style };
       });
 
-    fetchGithubProjectLanguage(projectName);
+    fetchGithubProjectLanguage(url, user, projectName);
   }, [projectName]);
 
   return (
