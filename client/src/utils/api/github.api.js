@@ -1,33 +1,14 @@
 import axios from "axios";
 
+const githubUrl = "https://api.github.com";
+const githubUser = "vpvnguyen";
+
 const GithubAPI = {
-  getGithubProjects: async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:5000/api/get-github-projects`
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error.message);
-      return console.log("Issue fetching Github Projects");
-    }
-  },
-  getProjectLanguages: async projectName => {
-    try {
-      const response = await axios.get(
-        `https://api.github.com/repos/vpvnguyen/${projectName}/languages`
-      );
-      return response.data;
-    } catch (error) {
-      console.error("Issue fetching Github Project languages", error.message);
-      return null;
-    }
-  },
   fetchGithubProjects: async () => {
     try {
       // get repos; 30 results per page; set per_page=100 to query for 100 pages;
       const githubProjects = await axios.get(
-        `https://api.github.com/users/vpvnguyen/repos?per_page=100`
+        `${githubUrl}/users/${githubUser}/repos?per_page=100`
       );
 
       const filteredStarredProjects = githubProjects.data.reduce(
@@ -60,6 +41,17 @@ const GithubAPI = {
     } catch (error) {
       console.error(error.message);
       return new Error("Issue fetching github projects");
+    }
+  },
+  getProjectLanguages: async projectName => {
+    try {
+      const response = await axios.get(
+        `${githubUrl}/repos/${githubUser}/${projectName}/languages`
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Issue fetching Github Project languages", error.message);
+      return null;
     }
   },
 };
