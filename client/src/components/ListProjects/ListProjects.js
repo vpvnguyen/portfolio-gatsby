@@ -21,7 +21,7 @@ const style = {
     flexDirection: "row",
     justifyContent: "space-between",
     margin: "10px",
-    padding: "10px",
+    padding: "0px 10px 25px 10px",
   },
   left: {
     display: "flex",
