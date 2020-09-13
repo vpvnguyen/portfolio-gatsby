@@ -10,9 +10,6 @@ const style = {
   page: {
     height: "100vh",
   },
-  landing: {
-    height: "89%",
-  },
   container: {
     display: "flex",
     flexWrap: "wrap",
