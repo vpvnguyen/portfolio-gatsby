@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GithubAPI from "../../utils/api/github.api";
 import { CircularProgress } from "@material-ui/core";
-
 import theme from "../../ui/theme";
 
 const Languages = ({ url, user, projectName }) => {

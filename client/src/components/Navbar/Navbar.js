@@ -3,14 +3,8 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-
-// social icons
 import Social from "../Social/Social.js";
-
-// theme
 import theme from "../../ui/theme.js";
-
-// effects
 import ElevationScroll from "./Navbar.effects.js";
 
 const style = {

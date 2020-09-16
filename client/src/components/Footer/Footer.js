@@ -1,5 +1,4 @@
 import React from "react";
-
 import Social from "../Social/Social.js";
 
 const style = {
