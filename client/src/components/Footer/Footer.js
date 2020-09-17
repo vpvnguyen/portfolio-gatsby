@@ -1,5 +1,5 @@
 import React from "react";
-import Social from "../Social/Social.js";
+import Social from "../Social.js";
 
 const style = {
   footer: {
