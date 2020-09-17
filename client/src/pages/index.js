@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../ui/Layout/Layout.js";
 import Welcome from "../components/Welcome/Welcome.js";
 import ListProjects from "../components/ListProjects/ListProjects.js";
-import Footer from "../components/Footer/Footer.js";
+import Footer from "../components/footer/Footer.js";
 import Twitter from "../components/Blog/Twitter";
 import Background from "../ui/Background";
 
