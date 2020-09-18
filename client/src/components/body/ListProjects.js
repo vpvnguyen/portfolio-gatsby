@@ -69,7 +69,7 @@ const ListProjects = () => {
       data.site.siteMetadata.api.github.url,
       data.site.siteMetadata.api.github.user
     );
-  }, []);
+  }, [data]);
 
   return (
     <LayoutStyle>
