@@ -1,10 +1,10 @@
 import React from "react";
 import Layout from "../ui/Layout/Layout.js";
-import Welcome from "../components/Welcome/Welcome.js";
-import ListProjects from "../components/ListProjects/ListProjects.js";
+import Welcome from "../components/landing/Welcome.js";
+import ListProjects from "../components/body/ListProjects.js";
 import Footer from "../components/footer/Footer.js";
-import Twitter from "../components/Blog/Twitter";
-import Background from "../ui/Background";
+import Twitter from "../components/body/Twitter.js";
+import Background from "../components/landing/Background.js";
 
 const style = {
   page: {
