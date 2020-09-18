@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import BackgroundImage from "../images/hb.jpg";
+import BackgroundImage from "../../images/hb.jpg";
 import theme from "../../ui/theme";
 
 const style = {
