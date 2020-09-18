@@ -52,7 +52,7 @@ const Languages = ({ url, user, projectName }) => {
       });
 
     fetchGithubProjectLanguage(url, user, projectName);
-  }, [projectName]);
+  }, [projectName, url, user]);
 
   return (
     <>
