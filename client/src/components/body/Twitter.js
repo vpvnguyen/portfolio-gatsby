@@ -25,9 +25,13 @@ const EmbedTwitterTimeline = (url, user) => {
     <LayoutStyle>
       <h1 style={theme.h1}>Tweets</h1>
       <a
+        aria-label="Twitter Feed"
+        aria-hidden="true"
         className="twitter-timeline"
         href={data.site.siteMetadata.social.twitter.url}
-      ></a>
+      >
+        {" "}
+      </a>
     </LayoutStyle>
   );
 };
