@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Header from "..../header/Header.js";
-import Navbar from "../../components/Navbar/Navbar.js";
+import Header from "../../components/header/Header.js";
+import Navbar from "../../components/header/Navbar.js";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
