@@ -33,10 +33,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Vincent Nguyen Portfolio`,
+        short_name: `vpvnguyen-portfolio`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#FFFFFF`,
         theme_color: `#03DAC5`,
         display: `minimal-ui`,
         icon: `src/images/dev-icon.png`, // This path is relative to the root of the site.
