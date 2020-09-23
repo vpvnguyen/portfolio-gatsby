@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import Social from "../Social.js";
 import theme from "../../ui/theme.js";
-import ElevationScroll from "./ElevationScroll.js";
+import ElevationScroll from "../../utils/hooks/ElevationScroll";
+import useStaticResumeQuery from "../../utils/hooks/useStaticResumeQuery";
 
 const style = {
   root: {
@@ -25,30 +26,20 @@ const style = {
     "&:hover": {
       backgroundColor: "transparent",
     },
-    textDecoration: "none" /* no underline */,
+    textDecoration: "none",
   },
   resume: {
     color: theme.color.accent,
-    textDecoration: "none" /* no underline */,
+    textDecoration: "none",
   },
 };
 
 const Navbar = ({ name }) => {
-  const data = useStaticQuery(graphql`
-    query siteResumeQuery {
-      site {
-        siteMetadata {
-          resume
-        }
-      }
-    }
-  `);
+  const data = useStaticResumeQuery();
 
   return (
     <div style={style.root}>
-      {/* slight shadow effect for navbar when scrolling */}
       <ElevationScroll>
-        {/* position="fixed" will fill bar to edges; keep bar fixed to top of screen when scrolling */}
         <AppBar position="fixed" style={style.navContainer}>
           <Toolbar style={style.navContainer}>
             <Button style={style.title} disableRipple>
@@ -56,7 +47,9 @@ const Navbar = ({ name }) => {
                 {name}
               </Link>
             </Button>
+
             <Social />
+
             <Button color="inherit">
               <a
                 style={style.resume}
