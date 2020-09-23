@@ -1,5 +1,5 @@
 import React from "react";
-import LayoutStyle from "../../ui/Layout/Layout.style";
+import LayoutStyle from "../../ui/layout/Layout.style";
 import AboutMe from "./AboutMe";
 import theme from "../../ui/theme";
 
@@ -17,20 +17,19 @@ const style = {
   },
 };
 
-const Welcome = () => {
-  return (
-    <LayoutStyle>
-      <div style={style.container}>
-        <div style={style.landingMessage}>
-          <h1 style={theme.h1}>Hi, I'm Vincent :)</h1>
-          <h1>I enjoy breaking and building things.</h1>
-        </div>
-        <div style={style.aboutMe}>
-          <AboutMe />
-        </div>
+const Welcome = () => (
+  <LayoutStyle>
+    <div style={style.container}>
+      <div style={style.landingMessage}>
+        <h1 style={theme.h1}>Hi, I'm Vincent :)</h1>
+        <h1>I enjoy breaking and building things.</h1>
       </div>
-    </LayoutStyle>
-  );
-};
+
+      <div style={style.aboutMe}>
+        <AboutMe />
+      </div>
+    </div>
+  </LayoutStyle>
+);
 
 export default Welcome;
