@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import { Button, CircularProgress } from "@material-ui/core";
 import dayjs from "dayjs";
-import LayoutStyle from "../../ui/Layout/Layout.style";
+import LayoutStyle from "../../ui/layout/Layout.style";
 import Languages from "./Languages";
 import theme from "../../ui/theme";
 import GithubAPI from "../../utils/api/github.api.js";
+import useStaticGithubApiQuery from "../../utils/hooks/useStaticGithubApiQuery";
 
 const style = {
   loader: {
@@ -39,22 +39,8 @@ const style = {
 };
 
 const ListProjects = () => {
-  const data = useStaticQuery(graphql`
-    query siteGithubApiQuery {
-      site {
-        siteMetadata {
-          api {
-            github {
-              url
-              user
-            }
-          }
-        }
-      }
-    }
-  `);
-
   const [githubProjects, setGithubProjects] = useState();
+  const data = useStaticGithubApiQuery();
 
   useEffect(() => {
     const fetchGithubProjects = async (url, user) => {
@@ -74,6 +60,7 @@ const ListProjects = () => {
   return (
     <LayoutStyle>
       <h1 style={theme.h1}>Projects</h1>
+
       <div style={style.container}>
         {githubProjects ? (
           githubProjects.map(project => (
@@ -89,6 +76,7 @@ const ListProjects = () => {
                 <h3>{project.name}</h3>
                 <div style={style.subtext}>{project.description}</div>
               </div>
+
               <div style={style.right}>
                 <Languages
                   style={style.subtext}
@@ -96,6 +84,7 @@ const ListProjects = () => {
                   user={data.site.siteMetadata.api.github.user}
                   projectName={project.name}
                 />
+
                 <div style={style.subtext}>
                   {dayjs(project.pushed_at).format("MMM/YYYY")}
                 </div>
