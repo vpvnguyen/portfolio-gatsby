@@ -5,5 +5,6 @@ export default () => {
   useEffect(() => {
     navigate("/");
   }, []);
+
   return null;
 };
