@@ -1,28 +1,23 @@
 import React, { useState, useEffect } from "react";
-import GithubAPI from "../../utils/api/github.api";
 import { CircularProgress } from "@material-ui/core";
 import theme from "../../ui/theme";
+import GithubAPI from "../../utils/api/github.api";
 
 const Languages = ({ url, user, projectName }) => {
   const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
-    const fetchGithubProjectLanguage = async (url, user, projectName) => {
-      try {
-        const githubLanguages = await GithubAPI.getProjectLanguages(
-          url,
-          user,
-          projectName
-        );
-        const languagesLowerCase = Object.keys(githubLanguages).map(value =>
-          value.toLowerCase()
-        );
-        const languageArray = await mapLanguageStyle(languagesLowerCase);
-        setLanguages(languageArray);
-      } catch (error) {
-        console.error("There is an error fetching github languages");
-      }
-    };
+    const defaultLanguageStyle = () => ({
+      fontSize: ".75em",
+      marginLeft: "3px",
+      padding: "5px",
+      borderRadius: "20px",
+      background: "white",
+      color: "black",
+    });
+
+    const setLanguageNamesToLowerCase = githubLanguages =>
+      Object.keys(githubLanguages).map(value => value.toLowerCase());
 
     const mapLanguageStyle = languageArray => {
       const languageColorKey = Object.keys(theme.languages);
@@ -31,14 +26,7 @@ const Languages = ({ url, user, projectName }) => {
 
     const mapLanguageColor = (languageArray, languageColorKey) =>
       languageArray.map((value, index) => {
-        let style = {
-          fontSize: ".75em",
-          marginLeft: "3px",
-          padding: "5px",
-          borderRadius: "20px",
-          background: "white",
-          color: "black",
-        };
+        let style = defaultLanguageStyle();
 
         if (languageColorKey.includes(value)) {
           style.background = theme.languages[value].background;
@@ -50,6 +38,23 @@ const Languages = ({ url, user, projectName }) => {
         style.color = theme.languages.default.color;
         return { name: languageArray[index], style };
       });
+
+    const fetchGithubProjectLanguage = async (url, user, projectName) => {
+      try {
+        const githubLanguages = await GithubAPI.getProjectLanguages(
+          url,
+          user,
+          projectName
+        );
+        const languageNamesLowerCased = setLanguageNamesToLowerCase(
+          githubLanguages
+        );
+        const languageArray = await mapLanguageStyle(languageNamesLowerCased);
+        setLanguages(languageArray);
+      } catch (error) {
+        console.error("There is an error fetching github languages");
+      }
+    };
 
     fetchGithubProjectLanguage(url, user, projectName);
   }, [projectName, url, user]);
