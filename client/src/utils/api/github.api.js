@@ -40,7 +40,7 @@ const GithubAPI = {
       return new Error("Issue fetching github projects");
     }
   },
-  getProjectLanguages: async (url, user, projectName) => {
+  fetchProjectLanguages: async (url, user, projectName) => {
     try {
       const response = await axios.get(
         `${url}/repos/${user}/${projectName}/languages`
