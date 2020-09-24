@@ -39,9 +39,9 @@ const Languages = ({ url, user, projectName }) => {
         return { name: languageArray[index], style };
       });
 
-    const fetchGithubProjectLanguage = async (url, user, projectName) => {
+    const getGithubProjectLanguages = async (url, user, projectName) => {
       try {
-        const githubLanguages = await GithubAPI.getProjectLanguages(
+        const githubLanguages = await GithubAPI.fetchProjectLanguages(
           url,
           user,
           projectName
@@ -56,7 +56,7 @@ const Languages = ({ url, user, projectName }) => {
       }
     };
 
-    fetchGithubProjectLanguage(url, user, projectName);
+    getGithubProjectLanguages(url, user, projectName);
   }, [projectName, url, user]);
 
   return (
