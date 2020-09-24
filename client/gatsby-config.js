@@ -3,6 +3,15 @@ module.exports = {
     title: `Vincent Nguyen`,
     description: `Vincent Nguyen's Portfolio.`,
     author: `Vincent`,
+    experience: {
+      current: "Software Engineer",
+      past: [
+        "Quality Assurance",
+        "Pipeline Management",
+        "Test Automation",
+        "PCI Security Standard",
+      ],
+    },
     social: {
       twitter: {
         url: `https://twitter.com/Vincent33567189?ref_src=twsrc%5Etfw`,
