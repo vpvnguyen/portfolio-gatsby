@@ -12,7 +12,7 @@ const style = {
     padding: "5rem",
   },
   aboutMe: {
-    paddingTop: "5rem",
+    paddingTop: "4rem",
     paddingBottom: "5rem",
   },
 };
