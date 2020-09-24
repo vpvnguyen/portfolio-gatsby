@@ -14,16 +14,28 @@ const theme = {
     ruby: { color: "black", border: "#CC342D", background: "#FFD6D6" },
     python: { color: "black", border: "#3776AB", background: "#D5E2EC" },
     java: { color: "black", border: "#940000", background: "#EBDDDD" },
-    ["objective-c"]: {
+    go: { color: "black", border: "#00ACD7", background: "#D2F3FC" },
+    c: { color: "black", border: "#5967BA", background: "#DBE0FF" },
+    "c#": {
+      color: "black",
+      border: "#A47CDE",
+      background: "#EEE2FF",
+    },
+    "c++": { color: "black", border: "#CBE2FA", background: "#649AD2" },
+    "objective-c": {
       color: "black",
       border: "#323F50",
       background: "#EEEEEE",
     },
     sql: { color: "black", border: "#FFD43B", background: "#EEEEEE" },
     tsql: { color: "black", border: "#00273F", background: "#EEEEEE" },
+    shell: { color: "black", border: "#D3D3D3", background: "#E0E0E0" },
   },
   h1: {
     textDecoration: "underline #03DAC5",
+  },
+  h3: {
+    fontSize: "1.3em",
   },
 };
 
