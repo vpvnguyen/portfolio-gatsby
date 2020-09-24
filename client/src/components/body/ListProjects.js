@@ -27,6 +27,7 @@ const style = {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
+    justifyContent: "space-between",
   },
   right: {
     display: "flex",
@@ -35,6 +36,11 @@ const style = {
   },
   subtext: {
     fontSize: ".7rem",
+  },
+  date: {
+    fontSize: ".6rem",
+    paddingTop: "1.5rem",
+    fontStyle: "oblique",
   },
 };
 
@@ -73,8 +79,12 @@ const ListProjects = () => {
               fullWidth
             >
               <div style={style.left}>
-                <h3>{project.name}</h3>
+                <h3 style={theme.h3}>{project.name}</h3>
+
                 <div style={style.subtext}>{project.description}</div>
+                <div style={style.date}>
+                  {dayjs(project.pushed_at).format("MMM-YYYY")}
+                </div>
               </div>
 
               <div style={style.right}>
@@ -84,10 +94,6 @@ const ListProjects = () => {
                   user={data.site.siteMetadata.api.github.user}
                   projectName={project.name}
                 />
-
-                <div style={style.subtext}>
-                  {dayjs(project.pushed_at).format("MMM/YYYY")}
-                </div>
               </div>
             </Button>
           ))
