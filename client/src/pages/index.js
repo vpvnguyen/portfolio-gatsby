@@ -8,7 +8,7 @@ import Background from "../components/landing/Background.js";
 
 const style = {
   page: {
-    height: "100vh",
+    overflow: "hidden",
   },
   container: {
     display: "flex",
