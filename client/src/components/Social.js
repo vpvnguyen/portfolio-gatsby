@@ -1,7 +1,9 @@
 import React from "react";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import theme from "../ui/theme.js";
+import {
+  GitHub as GitHubIcon,
+  LinkedIn as LinkedInIcon,
+} from "@material-ui/icons";
+import theme from "../ui/theme";
 import useStaticSocialQuery from "../utils/hooks/useStaticSocialQuery";
 
 const style = {
