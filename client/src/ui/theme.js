@@ -14,7 +14,11 @@ const theme = {
     ruby: { color: "black", border: "#CC342D", background: "#FFD6D6" },
     python: { color: "black", border: "#3776AB", background: "#D5E2EC" },
     java: { color: "black", border: "#940000", background: "#EBDDDD" },
+    swift: { color: "black", border: "#EB7731", background: "#FFDBC5" },
     go: { color: "black", border: "#00ACD7", background: "#D2F3FC" },
+    r: { color: "black", border: "#2266B8", background: "#C2DEFF" },
+    dart: { color: "black", border: "#2AB1EE", background: "#DDF4FF" },
+    kotlin: { color: "black", border: "#C85AA5", background: "#FFDAF3" },
     c: { color: "black", border: "#5967BA", background: "#DBE0FF" },
     "c#": {
       color: "black",
@@ -32,7 +36,7 @@ const theme = {
     shell: { color: "black", border: "#D3D3D3", background: "#E0E0E0" },
   },
   h1: {
-    textDecoration: "underline #03DAC5",
+    textDecoration: `underline #03DAC5`,
   },
   h3: {
     fontSize: "1.3em",
