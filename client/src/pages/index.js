@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "../ui/layout/Layout.js";
-import Welcome from "../components/landing/Welcome.js";
-import ListProjects from "../components/body/ListProjects.js";
-import Footer from "../components/footer/Footer.js";
-import EmbedTwitterTimeline from "../components/body/EmbedTwitterTimeline.js";
-import Background from "../components/landing/Background.js";
+import Layout from "../ui/layout/Layout";
+import Welcome from "../components/landing/Welcome";
+import ListProjects from "../components/body/ListProjects";
+import Footer from "../components/footer/Footer";
+import EmbedTwitterTimeline from "../components/body/EmbedTwitterTimeline";
+import Background from "../components/landing/Background";
 
 const style = {
   page: {
