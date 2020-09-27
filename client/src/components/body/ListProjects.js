@@ -86,9 +86,15 @@ const ListProjects = () => {
                   {project.name}{" "}
                   <span>
                     {project.homepage ? (
-                      <FontAwesomeIcon icon={faGlobe} />
+                      <FontAwesomeIcon
+                        icon={faGlobe}
+                        title="Click me for live demo!"
+                      />
                     ) : (
-                      <FontAwesomeIcon icon={faCode} />
+                      <FontAwesomeIcon
+                        icon={faCode}
+                        title="Click me to go to the repository!"
+                      />
                     )}
                   </span>
                 </h3>
