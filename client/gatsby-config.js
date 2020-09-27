@@ -25,6 +25,7 @@ module.exports = {
       github: {
         url: `https://api.github.com`,
         user: `vpvnguyen`,
+        pageAmount: `100`,
       },
     },
   },
