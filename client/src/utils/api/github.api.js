@@ -1,5 +1,11 @@
 import axios from "axios";
 
+const getGithubProjects = async (url, user, pageAmount) =>
+  await axios.get(`${url}/users/${user}/repos?per_page=${pageAmount}`);
+
+const getProjectLanguages = async (url, user, projectName) =>
+  await axios.get(`${url}/repos/${user}/${projectName}/languages`);
+
 const filterByStarredProjects = projects =>
   projects.reduce((result, project) => {
     if (project.stargazers_count > 0) result.push(project);
@@ -23,16 +29,12 @@ const sortProjectsByDateDesc = projects =>
   projects.sort((a, b) => b.pushed_at - a.pushed_at);
 
 const GithubAPI = {
-  fetchGithubProjects: async (url, user) => {
+  fetchGithubProjects: async (url, user, pageAmount) => {
     try {
-      // get repos; 30 results per page; set per_page=100 to query for 100 pages;
-      const githubProjects = await axios.get(
-        `${url}/users/${user}/repos?per_page=100`
-      );
+      const githubProjects = await getGithubProjects(url, user, pageAmount);
       const starredProjects = filterByStarredProjects(githubProjects.data);
       const structuredProjects = createProjectStructure(starredProjects);
       const sortedProjects = sortProjectsByDateDesc(structuredProjects);
-
       return sortedProjects;
     } catch (error) {
       console.error(error.message);
@@ -41,8 +43,10 @@ const GithubAPI = {
   },
   fetchProjectLanguages: async (url, user, projectName) => {
     try {
-      const projectLanguages = await axios.get(
-        `${url}/repos/${user}/${projectName}/languages`
+      const projectLanguages = await getProjectLanguages(
+        url,
+        user,
+        projectName
       );
       return projectLanguages.data;
     } catch (error) {
