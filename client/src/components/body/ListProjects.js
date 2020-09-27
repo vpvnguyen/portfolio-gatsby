@@ -6,6 +6,8 @@ import Languages from "./Languages";
 import theme from "../../ui/theme";
 import GithubAPI from "../../utils/api/github.api.js";
 import useStaticGithubApiQuery from "../../utils/hooks/useStaticGithubApiQuery";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe, faCode } from "@fortawesome/free-solid-svg-icons";
 
 const style = {
   loader: {
@@ -68,7 +70,6 @@ const ListProjects = () => {
   return (
     <LayoutStyle>
       <h1 style={theme.h1}>Projects</h1>
-
       <div style={style.container}>
         {githubProjects ? (
           githubProjects.map(project => (
@@ -81,7 +82,16 @@ const ListProjects = () => {
               fullWidth
             >
               <div style={style.left}>
-                <h3 style={theme.h3}>{project.name}</h3>
+                <h3 style={theme.h3}>
+                  {project.name}{" "}
+                  <span>
+                    {project.homepage ? (
+                      <FontAwesomeIcon icon={faGlobe} />
+                    ) : (
+                      <FontAwesomeIcon icon={faCode} />
+                    )}
+                  </span>
+                </h3>
 
                 <div style={style.subtext}>{project.description}</div>
                 <div style={style.date}>
@@ -101,6 +111,7 @@ const ListProjects = () => {
           ))
         ) : (
           <div style={style.loader}>
+            <h3>Loading Projects...</h3>
             <CircularProgress />
           </div>
         )}
