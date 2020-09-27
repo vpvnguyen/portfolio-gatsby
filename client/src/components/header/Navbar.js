@@ -3,9 +3,9 @@ import { Link } from "gatsby";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import Social from "../Social.js";
-import theme from "../../ui/theme.js";
-import ElevationScroll from "../../utils/hooks/ElevationScroll";
+import Social from "../Social";
+import theme from "../../ui/theme";
+import ElevationScroll from "./ElevationScroll";
 import useStaticResumeQuery from "../../utils/hooks/useStaticResumeQuery";
 
 const style = {
