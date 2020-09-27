@@ -9,6 +9,7 @@ const useStaticGithubApiQuery = () =>
             github {
               url
               user
+              pageAmount
             }
           }
         }
