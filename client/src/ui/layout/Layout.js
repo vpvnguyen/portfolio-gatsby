@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Header from "../../components/header/Header.js";
-import Navbar from "../../components/header/Navbar.js";
+import Header from "../../components/header/Header";
+import Navbar from "../../components/header/Navbar";
 import useStaticTitleQuery from "../../utils/hooks/useStaticTitleQuery";
 
 const Layout = ({ children }) => {
