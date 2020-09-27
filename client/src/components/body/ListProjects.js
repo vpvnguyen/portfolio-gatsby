@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, CircularProgress } from "@material-ui/core";
+import { Button, Paper, LinearProgress } from "@material-ui/core";
 import dayjs from "dayjs";
 import LayoutStyle from "../../ui/layout/Layout.style";
 import Languages from "./Languages";
@@ -110,10 +110,10 @@ const ListProjects = () => {
             </Button>
           ))
         ) : (
-          <div style={style.loader}>
+          <Paper style={style.loader}>
             <h3>Loading Projects...</h3>
-            <CircularProgress />
-          </div>
+            <LinearProgress />
+          </Paper>
         )}
       </div>
     </LayoutStyle>
