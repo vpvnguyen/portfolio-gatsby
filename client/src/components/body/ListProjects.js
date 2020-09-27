@@ -49,17 +49,19 @@ const ListProjects = () => {
   const data = useStaticGithubApiQuery();
 
   useEffect(() => {
-    const getGithubProjects = async (url, user) => {
+    const getGithubProjects = async (url, user, pageAmount) => {
       const githubProjectsResponse = await GithubAPI.fetchGithubProjects(
         url,
-        user
+        user,
+        pageAmount
       );
       await setGithubProjects(githubProjectsResponse);
     };
 
     getGithubProjects(
       data.site.siteMetadata.api.github.url,
-      data.site.siteMetadata.api.github.user
+      data.site.siteMetadata.api.github.user,
+      data.site.siteMetadata.api.github.pageAmount
     );
   }, [data]);
 
