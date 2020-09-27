@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Button, Paper, LinearProgress } from "@material-ui/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe, faCode } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import LayoutStyle from "../../ui/layout/Layout.style";
 import Languages from "./Languages";
 import theme from "../../ui/theme";
-import GithubAPI from "../../utils/api/github.api.js";
+import GithubAPI from "../../utils/api/github.api";
 import useStaticGithubApiQuery from "../../utils/hooks/useStaticGithubApiQuery";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faCode } from "@fortawesome/free-solid-svg-icons";
 
 const style = {
   loader: {
