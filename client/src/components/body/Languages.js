@@ -32,28 +32,24 @@ const Languages = ({ url, user, projectName }) => {
           style.background = theme.languages[value].background;
           style.color = theme.languages[value].color;
           return { name: languageArray[index], style };
+        } else {
+          style.background = theme.languages.default.background;
+          style.color = theme.languages.default.color;
+          return { name: languageArray[index], style };
         }
-
-        style.background = theme.languages.default.background;
-        style.color = theme.languages.default.color;
-        return { name: languageArray[index], style };
       });
 
     const getGithubProjectLanguages = async (url, user, projectName) => {
-      try {
-        const githubLanguages = await GithubAPI.fetchProjectLanguages(
-          url,
-          user,
-          projectName
-        );
-        const languageNamesLowerCased = setLanguageNamesToLowerCase(
-          githubLanguages
-        );
-        const languageArray = await mapLanguageStyle(languageNamesLowerCased);
-        setLanguages(languageArray);
-      } catch (error) {
-        console.error("There is an error fetching github languages");
-      }
+      const githubLanguages = await GithubAPI.fetchProjectLanguages(
+        url,
+        user,
+        projectName
+      );
+      const languageNamesLowerCased = setLanguageNamesToLowerCase(
+        githubLanguages
+      );
+      const languageArray = await mapLanguageStyle(languageNamesLowerCased);
+      setLanguages(languageArray);
     };
 
     getGithubProjectLanguages(url, user, projectName);
