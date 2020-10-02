@@ -38,7 +38,7 @@ const GithubAPI = {
       return sortedProjects;
     } catch (error) {
       console.error(error.message);
-      return new Error("Issue fetching github projects");
+      return null;
     }
   },
   fetchProjectLanguages: async (url, user, projectName) => {
