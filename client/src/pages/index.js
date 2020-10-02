@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../ui/layout/Layout";
-import Welcome from "../components/landing/Welcome";
+import Landing from "../components/landing/Landing";
 import ListProjects from "../components/body/ListProjects";
 import Footer from "../components/footer/Footer";
 import EmbedTwitterTimeline from "../components/body/EmbedTwitterTimeline";
@@ -40,7 +40,7 @@ const IndexPage = () => (
       <div style={style.container}>
         <div style={style.static}>
           <Background>
-            <Welcome />
+            <Landing />
           </Background>
         </div>
 
