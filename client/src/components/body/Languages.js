@@ -40,16 +40,21 @@ const Languages = ({ url, user, projectName }) => {
       });
 
     const getGithubProjectLanguages = async (url, user, projectName) => {
-      const githubLanguages = await GithubAPI.fetchProjectLanguages(
-        url,
-        user,
-        projectName
-      );
-      const languageNamesLowerCased = setLanguageNamesToLowerCase(
-        githubLanguages
-      );
-      const languageArray = await mapLanguageStyle(languageNamesLowerCased);
-      setLanguages(languageArray);
+      try {
+        const githubLanguages = await GithubAPI.fetchProjectLanguages(
+          url,
+          user,
+          projectName
+        );
+        const languageNamesLowerCased = setLanguageNamesToLowerCase(
+          githubLanguages
+        );
+        const languageArray = await mapLanguageStyle(languageNamesLowerCased);
+        setLanguages(languageArray);
+      } catch (error) {
+        console.error("Issue getting github languages", error.message);
+        setLanguages([]);
+      }
     };
 
     getGithubProjectLanguages(url, user, projectName);

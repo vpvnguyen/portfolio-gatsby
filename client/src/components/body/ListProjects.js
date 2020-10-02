@@ -10,8 +10,12 @@ import GithubAPI from "../../utils/api/github.api";
 import useStaticGithubApiQuery from "../../utils/hooks/useStaticGithubApiQuery";
 
 const style = {
+  loaderContainer: {
+    padding: "40px",
+  },
   loader: {
     padding: "40px",
+    marginTop: "10px",
   },
   container: {
     display: "flex",
@@ -52,12 +56,17 @@ const ListProjects = () => {
 
   useEffect(() => {
     const getGithubProjects = async (url, user, pageAmount) => {
-      const githubProjectsResponse = await GithubAPI.fetchGithubProjects(
-        url,
-        user,
-        pageAmount
-      );
-      await setGithubProjects(githubProjectsResponse);
+      try {
+        const githubProjectsResponse = await GithubAPI.fetchGithubProjects(
+          url,
+          user,
+          pageAmount
+        );
+        await setGithubProjects(githubProjectsResponse);
+      } catch (error) {
+        console.error("Issue getting github projects", error.message);
+        await setGithubProjects(null);
+      }
     };
 
     getGithubProjects(
@@ -116,9 +125,20 @@ const ListProjects = () => {
             </Button>
           ))
         ) : (
-          <Paper style={style.loader}>
+          <Paper style={style.loaderContainer}>
             <h3>Loading Projects...</h3>
-            <LinearProgress />
+            <Paper style={style.loader}>
+              <LinearProgress />
+            </Paper>
+            <Paper style={style.loader}>
+              <LinearProgress />
+            </Paper>
+            <Paper style={style.loader}>
+              <LinearProgress />
+            </Paper>
+            <Paper style={style.loader}>
+              <LinearProgress />
+            </Paper>
           </Paper>
         )}
       </div>
