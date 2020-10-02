@@ -1,35 +1,65 @@
 import React from "react";
-import LayoutStyle from "../../ui/layout/Layout.style";
-import AboutMe from "./AboutMe";
+import { motion } from "framer-motion";
 import theme from "../../ui/theme";
 
-const style = {
-  container: {
-    color: "#ffffff",
-    padding: "5rem 0rem 10rem 0rem",
-  },
-  landingMessage: {
-    padding: "5rem",
-  },
-  aboutMe: {
-    paddingTop: "4rem",
-    paddingBottom: "5rem",
-  },
+const MotionTitle = ({ children }) => {
+  const variants = {
+    before: {
+      opacity: 0,
+      y: 10,
+    },
+    after: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 30,
+        delay: 0.5,
+      },
+    },
+  };
+
+  return (
+    <motion.h1
+      style={theme.h1}
+      variants={variants}
+      initial={"before"}
+      animate={"after"}
+    >
+      {children}
+    </motion.h1>
+  );
+};
+
+const MotionText = ({ children }) => {
+  const variants = {
+    before: {
+      opacity: 0,
+      y: 10,
+    },
+    after: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 30,
+        delay: 1.5,
+      },
+    },
+  };
+
+  return (
+    <motion.h2 variants={variants} initial={"before"} animate={"after"}>
+      {children}
+    </motion.h2>
+  );
 };
 
 const Welcome = () => (
-  <LayoutStyle>
-    <div style={style.container}>
-      <div style={style.landingMessage}>
-        <h1 style={theme.h1}>Hi, I'm Vincent :)</h1>
-        <h1>I enjoy breaking and building things.</h1>
-      </div>
-
-      <div style={style.aboutMe}>
-        <AboutMe />
-      </div>
-    </div>
-  </LayoutStyle>
+  <>
+    <MotionTitle>Hi, I'm Vincent :)</MotionTitle>
+    <MotionText>I enjoy breaking and building things.</MotionText>
+  </>
 );
 
 export default Welcome;
