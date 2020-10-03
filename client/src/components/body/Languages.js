@@ -17,7 +17,9 @@ const Languages = ({ url, user, projectName }) => {
     });
 
     const setLanguageNamesToLowerCase = githubLanguages =>
-      Object.keys(githubLanguages).map(value => value.toLowerCase());
+      Object.keys(githubLanguages).map(languageName =>
+        languageName.toLowerCase()
+      );
 
     const mapLanguageStyle = languageArray => {
       const languageColorKey = Object.keys(theme.languages);
@@ -25,12 +27,12 @@ const Languages = ({ url, user, projectName }) => {
     };
 
     const mapLanguageColor = (languageArray, languageColorKey) =>
-      languageArray.map((value, index) => {
+      languageArray.map((key, index) => {
         let style = defaultLanguageStyle();
 
-        if (languageColorKey.includes(value)) {
-          style.background = theme.languages[value].background;
-          style.color = theme.languages[value].color;
+        if (languageColorKey.includes(key)) {
+          style.background = theme.languages[key].background;
+          style.color = theme.languages[key].color;
           return { name: languageArray[index], style };
         } else {
           style.background = theme.languages.default.background;
