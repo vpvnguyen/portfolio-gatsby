@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import theme from "../../ui/theme";
 
-const MotionTitle = ({ children }) => {
-  const variants = {
+const style = {
+  motionTitle: {
     before: {
       opacity: 0,
       y: 10,
@@ -13,26 +13,11 @@ const MotionTitle = ({ children }) => {
       y: 0,
       transition: {
         type: "spring",
-        damping: 30,
-        delay: 0.5,
+        damping: 80,
       },
     },
-  };
-
-  return (
-    <motion.h1
-      style={theme.h1}
-      variants={variants}
-      initial={"before"}
-      animate={"after"}
-    >
-      {children}
-    </motion.h1>
-  );
-};
-
-const MotionText = ({ children }) => {
-  const variants = {
+  },
+  motionText: {
     before: {
       opacity: 0,
       y: 10,
@@ -42,18 +27,29 @@ const MotionText = ({ children }) => {
       y: 0,
       transition: {
         type: "spring",
-        damping: 30,
+        damping: 50,
         delay: 1.5,
       },
     },
-  };
-
-  return (
-    <motion.h2 variants={variants} initial={"before"} animate={"after"}>
-      {children}
-    </motion.h2>
-  );
+  },
 };
+
+const MotionTitle = ({ children }) => (
+  <motion.h1
+    style={theme.h1}
+    variants={style.motionTitle}
+    initial={"before"}
+    animate={"after"}
+  >
+    {children}
+  </motion.h1>
+);
+
+const MotionText = ({ children }) => (
+  <motion.h2 variants={style.motionText} initial={"before"} animate={"after"}>
+    {children}
+  </motion.h2>
+);
 
 const Welcome = () => (
   <>
