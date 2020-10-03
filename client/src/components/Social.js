@@ -15,24 +15,17 @@ const style = {
     backgroundColor: theme.color.dark,
     color: theme.color.accent,
   },
-  motion: {
-    initial: {
-      cursor: "pointer",
-    },
-    whileHover: MotionStyle.whileHoverScale(),
-    whileTap: {
-      color: theme.color.dark,
-    },
-  },
+  motionIcon: MotionStyle.scaleUpSocialIcons(),
 };
 
 const MotionIcon = ({ children, url }) => (
   <motion.a
     href={url}
     style={style.links}
-    initial={style.motion.initial}
-    whileHover={style.motion.whileHover}
-    whileTap={style.motion.whileTap}
+    variants={style.motionIcon}
+    initial={"initial"}
+    whileHover={"whileHover"}
+    whileTap={"whileTap"}
     rel="noreferrer"
     target="_blank"
   >
