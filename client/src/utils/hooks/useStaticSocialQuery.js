@@ -6,8 +6,14 @@ const useStaticSocialQuery = () =>
       site {
         siteMetadata {
           social {
-            github
-            linkedin
+            github {
+              url
+              user
+            }
+            linkedin {
+              url
+              user
+            }
           }
         }
       }
