@@ -2,50 +2,20 @@ import React from "react";
 import { motion } from "framer-motion";
 import theme from "../../ui/theme";
 import useStaticExperienceQuery from "../../utils/hooks/useStaticExperienceQuery";
+import MotionStyle from "../../ui/motion";
 
 const style = {
-  motionTitle: {
-    before: {
-      opacity: 0,
-      y: 10,
-    },
-    after: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 50,
-        delay: 2.5,
-      },
-    },
-  },
-  motionText: {
-    before: {
-      opacity: 0,
-      y: 10,
-    },
-    after: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 100,
-        delay: 4,
-        y: {
-          velocity: -50,
-        },
-      },
-    },
-  },
+  motionHeader: MotionStyle.springUpAboutMeHeader(),
+  motionText: MotionStyle.springUpAboutMeText(),
 };
 
-const MotionTitle = ({ children }) => {
+const MotionHeader = ({ children }) => {
   return (
     <motion.h1
       style={theme.h1}
-      variants={style.motionTitle}
-      initial={"before"}
-      animate={"after"}
+      variants={style.motionHeader}
+      initial={"initial"}
+      animate={"animate"}
     >
       {children}
     </motion.h1>
@@ -53,7 +23,7 @@ const MotionTitle = ({ children }) => {
 };
 
 const MotionText = ({ children }) => (
-  <motion.p variants={style.motionText} initial={"before"} animate={"after"}>
+  <motion.p variants={style.motionText} initial={"initial"} animate={"animate"}>
     {children}
   </motion.p>
 );
@@ -63,12 +33,10 @@ const AboutMe = () => {
 
   return (
     <>
-      <MotionTitle>{data.site.siteMetadata.experience.current}</MotionTitle>
+      <MotionHeader>{data.site.siteMetadata.experience.current}</MotionHeader>
       {data &&
-        data.site.siteMetadata.experience.past.map((value, index) => (
-          <MotionText key={value} index={index}>
-            {value}
-          </MotionText>
+        data.site.siteMetadata.experience.past.map(pastExperience => (
+          <MotionText key={pastExperience}>{pastExperience}</MotionText>
         ))}
     </>
   );
