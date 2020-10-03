@@ -6,7 +6,7 @@ import {
 import { motion } from "framer-motion";
 import theme from "../ui/theme";
 import useStaticSocialQuery from "../utils/hooks/useStaticSocialQuery";
-import Motion from "../ui/motion";
+import MotionStyle from "../ui/motion";
 
 const style = {
   links: {
@@ -19,7 +19,7 @@ const style = {
     initial: {
       cursor: "pointer",
     },
-    whileHover: Motion.whileHoverScale(),
+    whileHover: MotionStyle.whileHoverScale(),
     whileTap: {
       color: theme.color.dark,
     },
