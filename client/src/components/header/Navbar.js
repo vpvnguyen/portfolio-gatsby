@@ -31,15 +31,7 @@ const style = {
     color: theme.color.accent,
     textDecoration: "none",
   },
-  motionButton: {
-    initial: {
-      cursor: "pointer",
-    },
-    whileHover: MotionStyle.whileHoverScale(),
-    whileTap: {
-      color: theme.color.dark,
-    },
-  },
+  motionButtonText: MotionStyle.scaleUpMenuItem(),
   motionToolbar: MotionStyle.springDownToolBar(),
 };
 
@@ -75,18 +67,20 @@ const Resume = () => {
 
 const MotionToolbar = ({ children }) => (
   <motion.nav
-    initial={style.motionToolbar.initial}
-    animate={style.motionToolbar.animate}
+    variants={style.motionToolbar}
+    initial={"initial"}
+    animate={"animate"}
   >
     {children}
   </motion.nav>
 );
 
-const MotionButton = ({ children }) => (
+const MotionButtonText = ({ children }) => (
   <motion.div
-    initial={style.motionButton.initial}
-    whileHover={style.motionButton.whileHover}
-    whileTap={style.motionButton.whileTap}
+    variants={style.motionButtonText}
+    initial={"initial"}
+    whileHover={"whileHover"}
+    whileTap={"whileTap"}
   >
     {children}
   </motion.div>
@@ -99,15 +93,15 @@ const Navbar = ({ name }) => {
         <AppBar position="fixed" style={style.navContainer}>
           <MotionToolbar>
             <Toolbar>
-              <MotionButton>
+              <MotionButtonText>
                 <Name name={name} />
-              </MotionButton>
+              </MotionButtonText>
 
               <Social />
 
-              <MotionButton>
+              <MotionButtonText>
                 <Resume />
-              </MotionButton>
+              </MotionButtonText>
             </Toolbar>
           </MotionToolbar>
         </AppBar>
