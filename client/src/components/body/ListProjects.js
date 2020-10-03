@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import LayoutStyle from "../../ui/layout/Layout.style";
 import Languages from "./Languages";
 import theme from "../../ui/theme";
-import Motion from "../../ui/motion";
+import MotionStyle from "../../ui/motion";
 import GithubAPI from "../../utils/api/github.api";
 import useStaticGithubApiQuery from "../../utils/hooks/useStaticGithubApiQuery";
 
@@ -55,7 +55,7 @@ const style = {
 const MotionHeader = ({ children }) => (
   <motion.h1
     style={theme.h1}
-    variants={Motion.springUpHeaders()}
+    variants={MotionStyle.springUpHeaders()}
     initial={"initial"}
     animate={"animate"}
   >
