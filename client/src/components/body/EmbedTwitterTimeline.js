@@ -1,8 +1,21 @@
 import React from "react";
+import { motion } from "framer-motion";
 import LayoutStyle from "../../ui/layout/Layout.style";
 import theme from "../../ui/theme";
 import useStaticTwitterQuery from "../../utils/hooks/useStaticTwitterQuery";
 import useScript from "../../utils/hooks/useScript";
+import Motion from "../../ui/motion";
+
+const MotionHeader = ({ children }) => (
+  <motion.h1
+    style={theme.h1}
+    variants={Motion.springUpHeaders()}
+    initial={"initial"}
+    animate={"animate"}
+  >
+    {children}
+  </motion.h1>
+);
 
 const EmbedTwitterTimeline = () => {
   const data = useStaticTwitterQuery();
@@ -10,7 +23,7 @@ const EmbedTwitterTimeline = () => {
 
   return (
     <LayoutStyle>
-      <h1 style={theme.h1}>Tweets</h1>
+      <MotionHeader>Tweets</MotionHeader>
 
       <a
         aria-label="Twitter Feed"
