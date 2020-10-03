@@ -4,12 +4,12 @@ import LayoutStyle from "../../ui/layout/Layout.style";
 import theme from "../../ui/theme";
 import useStaticTwitterQuery from "../../utils/hooks/useStaticTwitterQuery";
 import useScript from "../../utils/hooks/useScript";
-import Motion from "../../ui/motion";
+import MotionStyle from "../../ui/motion";
 
 const MotionHeader = ({ children }) => (
   <motion.h1
     style={theme.h1}
-    variants={Motion.springUpHeaders()}
+    variants={MotionStyle.springUpHeaders()}
     initial={"initial"}
     animate={"animate"}
   >
