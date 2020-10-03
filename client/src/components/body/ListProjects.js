@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Button, Paper, LinearProgress } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faCode } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 import dayjs from "dayjs";
 import LayoutStyle from "../../ui/layout/Layout.style";
 import Languages from "./Languages";
 import theme from "../../ui/theme";
+import Motion from "../../ui/motion";
 import GithubAPI from "../../utils/api/github.api";
 import useStaticGithubApiQuery from "../../utils/hooks/useStaticGithubApiQuery";
 
@@ -50,6 +52,17 @@ const style = {
   },
 };
 
+const MotionHeader = ({ children }) => (
+  <motion.h1
+    style={theme.h1}
+    variants={Motion.springUpHeaders()}
+    initial={"initial"}
+    animate={"animate"}
+  >
+    {children}
+  </motion.h1>
+);
+
 const ListProjects = () => {
   const [githubProjects, setGithubProjects] = useState();
   const data = useStaticGithubApiQuery();
@@ -78,7 +91,7 @@ const ListProjects = () => {
 
   return (
     <LayoutStyle>
-      <h1 style={theme.h1}>Projects</h1>
+      <MotionHeader>Projects</MotionHeader>
       <div style={style.container}>
         {githubProjects ? (
           githubProjects.map(project => (
