@@ -5,7 +5,7 @@ import Social from "../Social";
 import theme from "../../ui/theme";
 import ElevationScroll from "./ElevationScroll";
 import useStaticResumeQuery from "../../utils/hooks/useStaticResumeQuery";
-import Motion from "../../ui/motion";
+import MotionStyle from "../../ui/motion";
 
 const style = {
   root: {
@@ -35,24 +35,12 @@ const style = {
     initial: {
       cursor: "pointer",
     },
-    whileHover: Motion.whileHoverScale(),
+    whileHover: MotionStyle.whileHoverScale(),
     whileTap: {
       color: theme.color.dark,
     },
   },
-  motionNavbar: {
-    initial: {
-      y: -50,
-    },
-    animate: {
-      rotate: 0,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 30,
-      },
-    },
-  },
+  motionToolbar: MotionStyle.springDownToolBar(),
 };
 
 const Name = ({ name }) => {
@@ -85,10 +73,10 @@ const Resume = () => {
   );
 };
 
-const MotionNavbar = ({ children }) => (
+const MotionToolbar = ({ children }) => (
   <motion.nav
-    initial={style.motionNavbar.initial}
-    animate={style.motionNavbar.animate}
+    initial={style.motionToolbar.initial}
+    animate={style.motionToolbar.animate}
   >
     {children}
   </motion.nav>
@@ -109,7 +97,7 @@ const Navbar = ({ name }) => {
     <div style={style.root}>
       <ElevationScroll>
         <AppBar position="fixed" style={style.navContainer}>
-          <MotionNavbar>
+          <MotionToolbar>
             <Toolbar>
               <MotionButton>
                 <Name name={name} />
@@ -121,7 +109,7 @@ const Navbar = ({ name }) => {
                 <Resume />
               </MotionButton>
             </Toolbar>
-          </MotionNavbar>
+          </MotionToolbar>
         </AppBar>
       </ElevationScroll>
     </div>
