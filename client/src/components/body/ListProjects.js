@@ -10,13 +10,6 @@ import GithubAPI from "../../utils/api/github.api";
 import useStaticGithubApiQuery from "../../utils/hooks/useStaticGithubApiQuery";
 
 const style = {
-  loaderContainer: {
-    padding: "40px",
-  },
-  loader: {
-    padding: "40px",
-    marginTop: "10px",
-  },
   container: {
     display: "flex",
     flexDirection: "column",
@@ -47,6 +40,13 @@ const style = {
     fontSize: ".6rem",
     paddingTop: "1.5rem",
     fontStyle: "oblique",
+  },
+  loaderContainer: {
+    padding: "40px",
+  },
+  loader: {
+    padding: "40px",
+    marginTop: "10px",
   },
 };
 
