@@ -17,8 +17,14 @@ module.exports = {
         url: `https://twitter.com/Vincent33567189?ref_src=twsrc%5Etfw`,
         user: `Vincent33567189`,
       },
-      github: `vpvnguyen`,
-      linkedin: `vpvnguyen`,
+      github: {
+        url: `https://www.github.com/`,
+        user: `vpvnguyen`,
+      },
+      linkedin: {
+        url: `https://www.linkedin.com/in/`,
+        user: `vpvnguyen`,
+      },
     },
     resume: `https://docs.google.com/document/d/1PTogfVNXdTCEIQor0yN4gXIcFEKxHRFzGIlRl4287xM/edit?usp=sharing`,
     api: {
