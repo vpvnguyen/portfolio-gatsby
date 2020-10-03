@@ -50,12 +50,13 @@ const style = {
     padding: "40px",
     marginTop: "10px",
   },
+  motionHeader: MotionStyle.springUpHeaders(),
 };
 
 const MotionHeader = ({ children }) => (
   <motion.h1
     style={theme.h1}
-    variants={MotionStyle.springUpHeaders()}
+    variants={style.motionHeader}
     initial={"initial"}
     animate={"animate"}
   >
