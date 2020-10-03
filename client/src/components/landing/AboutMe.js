@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import theme from "../../ui/theme";
 import useStaticExperienceQuery from "../../utils/hooks/useStaticExperienceQuery";
 
-const MotionTitle = ({ children }) => {
-  const variants = {
+const style = {
+  motionTitle: {
     before: {
       opacity: 0,
       y: 10,
@@ -14,16 +14,36 @@ const MotionTitle = ({ children }) => {
       y: 0,
       transition: {
         type: "spring",
-        damping: 30,
+        damping: 50,
         delay: 2.5,
       },
     },
-  };
+  },
+  motionText: {
+    before: {
+      opacity: 0,
+      y: 10,
+    },
+    after: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 100,
+        delay: 4,
+        y: {
+          velocity: -50,
+        },
+      },
+    },
+  },
+};
 
+const MotionTitle = ({ children }) => {
   return (
     <motion.h1
       style={theme.h1}
-      variants={variants}
+      variants={style.motionTitle}
       initial={"before"}
       animate={"after"}
     >
@@ -32,32 +52,11 @@ const MotionTitle = ({ children }) => {
   );
 };
 
-const MotionText = ({ children }) => {
-  const variants = {
-    before: {
-      opacity: 0,
-      y: 10,
-    },
-    after: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 30,
-        delay: 3.5,
-        y: {
-          velocity: -100,
-        },
-      },
-    },
-  };
-
-  return (
-    <motion.p variants={variants} initial={"before"} animate={"after"}>
-      {children}
-    </motion.p>
-  );
-};
+const MotionText = ({ children }) => (
+  <motion.p variants={style.motionText} initial={"before"} animate={"after"}>
+    {children}
+  </motion.p>
+);
 
 const AboutMe = () => {
   const data = useStaticExperienceQuery();
