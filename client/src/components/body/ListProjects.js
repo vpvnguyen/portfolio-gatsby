@@ -51,6 +51,7 @@ const style = {
     marginTop: "10px",
   },
   motionHeader: MotionStyle.springUpHeaders(),
+  motionProject: MotionStyle.animateProject(),
 };
 
 const MotionHeader = ({ children }) => (
@@ -62,6 +63,17 @@ const MotionHeader = ({ children }) => (
   >
     {children}
   </motion.h1>
+);
+
+const MotionProject = ({ children }) => (
+  <motion.div
+    variants={style.motionProject}
+    initial={"initial"}
+    animate={"animate"}
+    whileHover={"whileHover"}
+  >
+    {children}
+  </motion.div>
 );
 
 const ListProjects = () => {
@@ -78,7 +90,6 @@ const ListProjects = () => {
         );
         await setGithubProjects(githubProjectsResponse);
       } catch (error) {
-        console.error("Issue getting github projects", error.message);
         await setGithubProjects(null);
       }
     };
@@ -96,47 +107,49 @@ const ListProjects = () => {
       <div style={style.container}>
         {githubProjects ? (
           githubProjects.map(project => (
-            <Button
-              key={project.name}
-              style={style.body}
-              href={project.homepage || project.html_url}
-              target="_blank"
-              rel="noreferrer"
-              fullWidth
-            >
-              <div style={style.left}>
-                <h3 style={theme.h3}>
-                  {project.name}{" "}
-                  <span>
-                    {project.homepage ? (
-                      <FontAwesomeIcon
-                        icon={faGlobe}
-                        title="Click me for live demo!"
-                      />
-                    ) : (
-                      <FontAwesomeIcon
-                        icon={faCode}
-                        title="Click me to go to the repository!"
-                      />
-                    )}
-                  </span>
-                </h3>
+            <MotionProject>
+              <Button
+                key={project.name}
+                style={style.body}
+                href={project.homepage || project.html_url}
+                target="_blank"
+                rel="noreferrer"
+                fullWidth
+              >
+                <div style={style.left}>
+                  <h3 style={theme.h3}>
+                    {project.name}{" "}
+                    <span>
+                      {project.homepage ? (
+                        <FontAwesomeIcon
+                          icon={faGlobe}
+                          title="Click me for live demo!"
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={faCode}
+                          title="Click me to go to the repository!"
+                        />
+                      )}
+                    </span>
+                  </h3>
 
-                <div style={style.subtext}>{project.description}</div>
-                <div style={style.date}>
-                  {dayjs(project.pushed_at).format("MMM-YYYY")}
+                  <div style={style.subtext}>{project.description}</div>
+                  <div style={style.date}>
+                    {dayjs(project.pushed_at).format("MMM-YYYY")}
+                  </div>
                 </div>
-              </div>
 
-              <div style={style.right}>
-                <Languages
-                  style={style.subtext}
-                  url={data.site.siteMetadata.api.github.url}
-                  user={data.site.siteMetadata.api.github.user}
-                  projectName={project.name}
-                />
-              </div>
-            </Button>
+                <div style={style.right}>
+                  <Languages
+                    style={style.subtext}
+                    url={data.site.siteMetadata.api.github.url}
+                    user={data.site.siteMetadata.api.github.user}
+                    projectName={project.name}
+                  />
+                </div>
+              </Button>
+            </MotionProject>
           ))
         ) : (
           <Paper style={style.loaderContainer}>
