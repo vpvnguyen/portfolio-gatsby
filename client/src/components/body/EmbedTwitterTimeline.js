@@ -6,10 +6,15 @@ import useStaticTwitterQuery from "../../utils/hooks/useStaticTwitterQuery";
 import useScript from "../../utils/hooks/useScript";
 import MotionStyle from "../../ui/motion";
 
-const MotionHeader = ({ children }) => (
+const style = {
+  twitterHeader: theme.h1,
+  motionTwitterHeader: MotionStyle.springUpHeaders(),
+};
+
+const MotionTwitterHeader = ({ children }) => (
   <motion.h1
-    style={theme.h1}
-    variants={MotionStyle.springUpHeaders()}
+    style={style.twitterHeader}
+    variants={style.motionTwitterHeader}
     initial={"initial"}
     animate={"animate"}
   >
@@ -23,7 +28,7 @@ const EmbedTwitterTimeline = () => {
 
   return (
     <LayoutStyle>
-      <MotionHeader>Tweets</MotionHeader>
+      <MotionTwitterHeader>Tweets</MotionTwitterHeader>
 
       <a
         aria-label="Twitter Feed"
