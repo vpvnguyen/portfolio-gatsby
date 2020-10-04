@@ -5,14 +5,15 @@ import useStaticExperienceQuery from "../../utils/hooks/useStaticExperienceQuery
 import MotionStyle from "../../ui/motion";
 
 const style = {
-  motionHeader: MotionStyle.springUpAboutMeHeader(),
-  motionText: MotionStyle.springUpAboutMeText(),
+  aboutMeHeader: theme.h1,
+  motionAboutMeHeader: MotionStyle.springUpAboutMeHeader(),
+  motionAboutMeText: MotionStyle.springUpAboutMeText(),
 };
 
-const MotionHeader = ({ children }) => (
+const MotionAboutMeHeader = ({ children }) => (
   <motion.h1
-    style={theme.h1}
-    variants={style.motionHeader}
+    style={style.aboutMeHeader}
+    variants={style.motionAboutMeHeader}
     initial={"initial"}
     animate={"animate"}
   >
@@ -20,8 +21,12 @@ const MotionHeader = ({ children }) => (
   </motion.h1>
 );
 
-const MotionText = ({ children }) => (
-  <motion.p variants={style.motionText} initial={"initial"} animate={"animate"}>
+const MotionAboutMeText = ({ children }) => (
+  <motion.p
+    variants={style.motionAboutMeText}
+    initial={"initial"}
+    animate={"animate"}
+  >
     {children}
   </motion.p>
 );
@@ -31,10 +36,14 @@ const AboutMe = () => {
 
   return (
     <>
-      <MotionHeader>{data.site.siteMetadata.experience.current}</MotionHeader>
+      <MotionAboutMeHeader>
+        {data.site.siteMetadata.experience.current}
+      </MotionAboutMeHeader>
       {data &&
         data.site.siteMetadata.experience.past.map(pastExperience => (
-          <MotionText key={pastExperience}>{pastExperience}</MotionText>
+          <MotionAboutMeText key={pastExperience}>
+            {pastExperience}
+          </MotionAboutMeText>
         ))}
     </>
   );
