@@ -18,6 +18,24 @@ class MotionStyle {
     },
   });
 
+  static animateProject = () => ({
+    initial: {
+      opacity: 0,
+      y: 10,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+      },
+    },
+    whileHover: {
+      scale: 1.05,
+    },
+  });
+
   static springDownToolBar = () => ({
     initial: {
       y: -50,
