@@ -35,6 +35,8 @@ const style = {
     flexDirection: "column",
     alignItems: "flex-end",
   },
+  projectHeader: theme.h1,
+  projectName: theme.h3,
   subtext: {
     fontSize: ".7rem",
   },
@@ -50,14 +52,14 @@ const style = {
     padding: "40px",
     marginTop: "10px",
   },
-  motionHeader: MotionStyle.springUpHeaders(),
+  motionProjectHeader: MotionStyle.springUpHeaders(),
   motionProject: MotionStyle.animateProject(),
 };
 
 const MotionHeader = ({ children }) => (
   <motion.h1
-    style={theme.h1}
-    variants={style.motionHeader}
+    style={style.projectHeader}
+    variants={style.motionProjectHeader}
     initial={"initial"}
     animate={"animate"}
   >
@@ -117,7 +119,7 @@ const ListProjects = () => {
                 fullWidth
               >
                 <div style={style.left}>
-                  <h3 style={theme.h3}>
+                  <h3 style={style.projectName}>
                     {project.name}{" "}
                     <span>
                       {project.homepage ? (
