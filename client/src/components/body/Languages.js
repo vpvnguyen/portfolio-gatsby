@@ -54,8 +54,7 @@ const Languages = ({ url, user, projectName }) => {
         const languageArray = await mapLanguageStyle(languageNamesLowerCased);
         setLanguages(languageArray);
       } catch (error) {
-        console.error("Issue getting github languages", error.message);
-        setLanguages([]);
+        setLanguages(null);
       }
     };
 
