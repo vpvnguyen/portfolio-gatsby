@@ -37,7 +37,6 @@ const GithubAPI = {
       const sortedProjects = sortProjectsByDateDesc(structuredProjects);
       return sortedProjects;
     } catch (error) {
-      console.error(error.message);
       return null;
     }
   },
@@ -50,7 +49,6 @@ const GithubAPI = {
       );
       return projectLanguages.data;
     } catch (error) {
-      console.error("Issue fetching Github Project languages", error.message);
       return null;
     }
   },
