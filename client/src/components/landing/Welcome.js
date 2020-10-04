@@ -4,14 +4,15 @@ import theme from "../../ui/theme";
 import MotionStyle from "../../ui/motion";
 
 const style = {
-  motionTitle: MotionStyle.springUpWelcomeHeader(),
-  motionText: MotionStyle.springUpWelcomeText(),
+  welcomeHeader: theme.h1,
+  motionWelcomeHeader: MotionStyle.springUpWelcomeHeader(),
+  motionWelcomeText: MotionStyle.springUpWelcomeText(),
 };
 
-const MotionTitle = ({ children }) => (
+const MotionWelcomeHeader = ({ children }) => (
   <motion.h1
-    style={theme.h1}
-    variants={style.motionTitle}
+    style={style.welcomeHeader}
+    variants={style.motionWelcomeHeader}
     initial={"initial"}
     animate={"animate"}
   >
@@ -19,9 +20,9 @@ const MotionTitle = ({ children }) => (
   </motion.h1>
 );
 
-const MotionText = ({ children }) => (
+const MotionWelcomeText = ({ children }) => (
   <motion.h2
-    variants={style.motionText}
+    variants={style.motionWelcomeText}
     initial={"initial"}
     animate={"animate"}
   >
@@ -31,8 +32,8 @@ const MotionText = ({ children }) => (
 
 const Welcome = () => (
   <>
-    <MotionTitle>Hi, I'm Vincent :)</MotionTitle>
-    <MotionText>I enjoy breaking and building things.</MotionText>
+    <MotionWelcomeHeader>Hi, I'm Vincent :)</MotionWelcomeHeader>
+    <MotionWelcomeText>I enjoy breaking and building things.</MotionWelcomeText>
   </>
 );
 
