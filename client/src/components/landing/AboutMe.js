@@ -9,18 +9,16 @@ const style = {
   motionText: MotionStyle.springUpAboutMeText(),
 };
 
-const MotionHeader = ({ children }) => {
-  return (
-    <motion.h1
-      style={theme.h1}
-      variants={style.motionHeader}
-      initial={"initial"}
-      animate={"animate"}
-    >
-      {children}
-    </motion.h1>
-  );
-};
+const MotionHeader = ({ children }) => (
+  <motion.h1
+    style={theme.h1}
+    variants={style.motionHeader}
+    initial={"initial"}
+    animate={"animate"}
+  >
+    {children}
+  </motion.h1>
+);
 
 const MotionText = ({ children }) => (
   <motion.p variants={style.motionText} initial={"initial"} animate={"animate"}>
