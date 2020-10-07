@@ -56,7 +56,7 @@ const style = {
   motionProject: MotionStyle.animateProject(),
 };
 
-const MotionHeader = ({ children }) => (
+const MotionProjectHeader = ({ children }) => (
   <motion.h1
     style={style.projectHeader}
     variants={style.motionProjectHeader}
@@ -105,7 +105,7 @@ const ListProjects = () => {
 
   return (
     <LayoutStyle>
-      <MotionHeader>Projects</MotionHeader>
+      <MotionProjectHeader>Projects</MotionProjectHeader>
       <div style={style.container}>
         {githubProjects ? (
           githubProjects.map(project => (
