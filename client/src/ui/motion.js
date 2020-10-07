@@ -53,7 +53,7 @@ class MotionStyle {
   static springUpAboutMeHeader = () => ({
     initial: {
       opacity: 0,
-      y: 10,
+      y: 20,
     },
     animate: {
       opacity: 1,
@@ -69,7 +69,7 @@ class MotionStyle {
   static springUpAboutMeText = () => ({
     initial: {
       opacity: 0,
-      y: 10,
+      y: 20,
     },
     animate: {
       opacity: 1,
