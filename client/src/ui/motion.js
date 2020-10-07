@@ -76,11 +76,8 @@ class MotionStyle {
       y: 0,
       transition: {
         type: "spring",
-        damping: 100,
+        damping: 70,
         delay: 4,
-        y: {
-          velocity: -50,
-        },
       },
     },
   });
