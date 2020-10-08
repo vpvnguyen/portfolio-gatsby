@@ -41,7 +41,11 @@ const Name = ({ name }) => {
   };
 
   return (
-    <Button style={style.title} onClick={scrollToTop}>
+    <Button
+      style={style.title}
+      onClick={scrollToTop}
+      title="Take me to the top!"
+    >
       {name}
     </Button>
   );
@@ -58,6 +62,7 @@ const Resume = () => {
         target="_blank"
         rel="noreferrer"
         download
+        title="Go to resume"
       >
         Resume
       </a>
