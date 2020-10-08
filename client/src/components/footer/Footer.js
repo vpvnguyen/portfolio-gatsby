@@ -6,7 +6,7 @@ import useStaticTitleQuery from "../../utils/hooks/useStaticTitleQuery";
 const style = {
   footer: {
     backgroundColor: theme.color.dark,
-    color: theme.color.light,
+    color: theme.color.accent,
   },
   footerContent: {
     display: "flex",
