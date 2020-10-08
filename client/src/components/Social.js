@@ -10,7 +10,6 @@ import MotionStyle from "../ui/motion";
 
 const style = {
   links: {
-    fontSize: "1.4em",
     margin: ".5rem",
     backgroundColor: "transparent",
     color: theme.color.accent,
