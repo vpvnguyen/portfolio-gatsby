@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import theme from "../../ui/theme";
 import MotionStyle from "../../ui/motion";
+import useStaticTitleQuery from "../../utils/hooks/useStaticTitleQuery";
 
 const style = {
   welcomeHeader: theme.h1,
@@ -10,14 +11,13 @@ const style = {
 };
 
 const MotionWelcomeHeader = ({ children }) => (
-  <motion.h1
-    style={style.welcomeHeader}
+  <motion.div
     variants={style.motionWelcomeHeader}
     initial={"initial"}
     animate={"animate"}
   >
     {children}
-  </motion.h1>
+  </motion.div>
 );
 
 const MotionWelcomeText = ({ children }) => (
@@ -30,11 +30,19 @@ const MotionWelcomeText = ({ children }) => (
   </motion.h2>
 );
 
-const Welcome = () => (
-  <>
-    <MotionWelcomeHeader>Hi, I'm Vincent :)</MotionWelcomeHeader>
-    <MotionWelcomeText>I enjoy breaking and building things.</MotionWelcomeText>
-  </>
-);
+const Welcome = () => {
+  const data = useStaticTitleQuery();
+
+  return (
+    <>
+      <MotionWelcomeHeader>
+        <h1 style={style.welcomeHeader}>{data.site.siteMetadata.title}</h1>
+      </MotionWelcomeHeader>
+      <MotionWelcomeText>
+        I enjoy breaking and building things.
+      </MotionWelcomeText>
+    </>
+  );
+};
 
 export default Welcome;
