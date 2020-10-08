@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Paper, LinearProgress } from "@material-ui/core";
+import { Button, LinearProgress } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faCode } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
@@ -21,8 +21,6 @@ const style = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    margin: "10px",
-    padding: "0px 10px 25px 10px",
   },
   left: {
     display: "flex",
@@ -46,13 +44,11 @@ const style = {
     fontStyle: "oblique",
   },
   loaderContainer: {
+    display: "flex",
+    flexDirection: "row",
     padding: "40px",
   },
-  loader: {
-    padding: "40px",
-    marginTop: "10px",
-  },
-  motionProjectHeader: MotionStyle.springUpHeaders(),
+  motionProjectHeader: MotionStyle.fadeInHeadersLeft(),
   motionProject: MotionStyle.animateProject(),
 };
 
@@ -80,6 +76,7 @@ const MotionProject = ({ children }) => (
 
 const ListProjects = () => {
   const [githubProjects, setGithubProjects] = useState();
+  const [loading, setLoading] = useState(true);
   const data = useStaticGithubApiQuery();
 
   useEffect(() => {
@@ -91,6 +88,7 @@ const ListProjects = () => {
           pageAmount
         );
         await setGithubProjects(githubProjectsResponse);
+        setLoading(false);
       } catch (error) {
         await setGithubProjects(null);
       }
@@ -105,7 +103,9 @@ const ListProjects = () => {
 
   return (
     <LayoutStyle>
-      <MotionProjectHeader>Projects</MotionProjectHeader>
+      <MotionProjectHeader>
+        {loading ? "Loading Projects..." : "Projects"}
+      </MotionProjectHeader>
       <div style={style.container}>
         {githubProjects ? (
           githubProjects.map(project => (
@@ -154,21 +154,7 @@ const ListProjects = () => {
             </MotionProject>
           ))
         ) : (
-          <Paper style={style.loaderContainer}>
-            <h3>Loading Projects...</h3>
-            <Paper style={style.loader}>
-              <LinearProgress />
-            </Paper>
-            <Paper style={style.loader}>
-              <LinearProgress />
-            </Paper>
-            <Paper style={style.loader}>
-              <LinearProgress />
-            </Paper>
-            <Paper style={style.loader}>
-              <LinearProgress />
-            </Paper>
-          </Paper>
+          <LinearProgress />
         )}
       </div>
     </LayoutStyle>
