@@ -3,17 +3,34 @@ import theme from "../ui/theme";
 class MotionStyle {
   static whileHoverScale = () => ({ scale: 1.1 });
 
-  static springUpHeaders = () => ({
+  static fadeInHeadersLeft = () => ({
     initial: {
       opacity: 0,
-      y: 10,
+      x: 20,
     },
     animate: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         type: "spring",
         damping: 50,
+        duration: 3,
+      },
+    },
+  });
+
+  static fadeInTwitterTimelineRight = () => ({
+    initial: {
+      opacity: 0,
+      x: -5,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+        duration: 0.5,
       },
     },
   });
@@ -21,18 +38,20 @@ class MotionStyle {
   static animateProject = () => ({
     initial: {
       opacity: 0,
-      y: 10,
+      x: -5,
     },
     animate: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         type: "spring",
-        damping: 50,
+        damping: 80,
       },
     },
     whileHover: {
-      scale: 1.05,
+      webkitBoxShadow: `3px 3px 5px 6px #ccc` /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */,
+      mozBoxShadow: `3px 3px 5px 6px #ccc` /* Firefox 3.5 - 3.6 */,
+      boxShadow: `3px 3px 5px 6px #ccc` /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */,
     },
   });
 
