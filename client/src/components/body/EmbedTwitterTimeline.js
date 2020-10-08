@@ -8,7 +8,8 @@ import MotionStyle from "../../ui/motion";
 
 const style = {
   twitterHeader: theme.h1,
-  motionTwitterHeader: MotionStyle.springUpHeaders(),
+  motionTwitterHeader: MotionStyle.fadeInHeadersLeft(),
+  motionTwitterTimeline: MotionStyle.fadeInTwitterTimelineRight(),
 };
 
 const MotionTwitterHeader = ({ children }) => (
@@ -22,6 +23,17 @@ const MotionTwitterHeader = ({ children }) => (
   </motion.h1>
 );
 
+const MotionTwitterTimeline = ({ children }) => (
+  <motion.div
+    style={style.twitterHeader}
+    variants={style.motionTwitterTimeline}
+    initial={"initial"}
+    animate={"animate"}
+  >
+    {children}
+  </motion.div>
+);
+
 const EmbedTwitterTimeline = () => {
   const data = useStaticTwitterQuery();
   useScript("https://platform.twitter.com/widgets.js");
@@ -29,15 +41,16 @@ const EmbedTwitterTimeline = () => {
   return (
     <LayoutStyle>
       <MotionTwitterHeader>Tweets</MotionTwitterHeader>
-
-      <a
-        aria-label="Twitter Feed"
-        aria-hidden="true"
-        className="twitter-timeline"
-        href={data.site.siteMetadata.social.twitter.url}
-      >
-        {" "}
-      </a>
+      <MotionTwitterTimeline>
+        <a
+          aria-label="Twitter Feed"
+          aria-hidden="true"
+          className="twitter-timeline"
+          href={data.site.siteMetadata.social.twitter.url}
+        >
+          {" "}
+        </a>
+      </MotionTwitterTimeline>
     </LayoutStyle>
   );
 };
