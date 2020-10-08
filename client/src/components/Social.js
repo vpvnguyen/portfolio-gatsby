@@ -12,7 +12,7 @@ const style = {
   links: {
     fontSize: "1.4em",
     margin: ".5rem",
-    backgroundColor: theme.color.dark,
+    backgroundColor: "transparent",
     color: theme.color.accent,
   },
   motionIcon: MotionStyle.scaleUpSocialIcons(),
