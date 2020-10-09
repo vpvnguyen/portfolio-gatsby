@@ -22,16 +22,9 @@ const style = {
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  left: {
+  projectInfo: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-  },
-  right: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-end",
   },
   projectHeader: theme.h1,
   projectName: theme.h3,
@@ -118,7 +111,7 @@ const ListProjects = () => {
                 rel="noreferrer"
                 fullWidth
               >
-                <div style={style.left}>
+                <div style={style.projectInfo}>
                   <h3 style={style.projectName}>
                     {project.name}{" "}
                     <span>
@@ -142,14 +135,12 @@ const ListProjects = () => {
                   </div>
                 </div>
 
-                <div style={style.right}>
-                  <Languages
-                    style={style.subtext}
-                    url={data.site.siteMetadata.api.github.url}
-                    user={data.site.siteMetadata.api.github.user}
-                    projectName={project.name}
-                  />
-                </div>
+                <Languages
+                  style={style.subtext}
+                  url={data.site.siteMetadata.api.github.url}
+                  user={data.site.siteMetadata.api.github.user}
+                  projectName={project.name}
+                />
               </Button>
             </MotionProject>
           ))
