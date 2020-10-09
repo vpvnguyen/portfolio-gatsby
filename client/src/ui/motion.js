@@ -3,6 +3,84 @@ import theme from "../ui/theme";
 class MotionStyle {
   static whileHoverScale = () => ({ scale: 1.1 });
 
+  static springDownToolBar = () => ({
+    initial: {
+      opacity: 0,
+      y: -10,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+      },
+    },
+  });
+
+  static springUpWelcomeHeader = () => ({
+    initial: {
+      opacity: 0,
+      y: 10,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 80,
+      },
+    },
+  });
+
+  static springUpWelcomeText = () => ({
+    initial: {
+      opacity: 0,
+      y: 10,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+        delay: 1.5,
+      },
+    },
+  });
+
+  static springUpAboutMeHeader = () => ({
+    initial: {
+      opacity: 0,
+      y: 20,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+        delay: 2.5,
+      },
+    },
+  });
+
+  static springUpAboutMeText = () => ({
+    initial: {
+      opacity: 0,
+      y: 20,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 70,
+        delay: 4,
+      },
+    },
+  });
+
   static fadeInHeadersLeft = () => ({
     initial: {
       opacity: 0,
@@ -55,84 +133,7 @@ class MotionStyle {
     },
   });
 
-  static springDownToolBar = () => ({
-    initial: {
-      y: -50,
-    },
-    animate: {
-      rotate: 0,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 30,
-      },
-    },
-  });
-
-  static springUpAboutMeHeader = () => ({
-    initial: {
-      opacity: 0,
-      y: 20,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 50,
-        delay: 2.5,
-      },
-    },
-  });
-
-  static springUpAboutMeText = () => ({
-    initial: {
-      opacity: 0,
-      y: 20,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 70,
-        delay: 4,
-      },
-    },
-  });
-
-  static springUpWelcomeHeader = () => ({
-    initial: {
-      opacity: 0,
-      y: 10,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 80,
-      },
-    },
-  });
-
-  static springUpWelcomeText = () => ({
-    initial: {
-      opacity: 0,
-      y: 10,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 50,
-        delay: 1.5,
-      },
-    },
-  });
-
-  static scaleUpSocialIcons = () => ({
+  static scaleUpMenuItem = () => ({
     initial: {
       cursor: "pointer",
     },
@@ -142,7 +143,7 @@ class MotionStyle {
     },
   });
 
-  static scaleUpMenuItem = () => ({
+  static scaleUpSocialIcons = () => ({
     initial: {
       cursor: "pointer",
     },
