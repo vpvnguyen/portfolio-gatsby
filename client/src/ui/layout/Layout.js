@@ -2,15 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/header/Navbar";
-import useStaticTitleQuery from "../../utils/hooks/useStaticTitleQuery";
+import useStaticAuthorQuery from "../../utils/hooks/useStaticAuthorQuery";
 
 const Layout = ({ children }) => {
-  const data = useStaticTitleQuery();
+  const data = useStaticAuthorQuery();
 
   return (
     <>
-      <Header title={data.site.siteMetadata.title} />
-      <Navbar name={data.site.siteMetadata.title} />
+      <Header author={data.site.siteMetadata.author} />
+      <Navbar author={data.site.siteMetadata.author} />
       <div>{children}</div>
     </>
   );
