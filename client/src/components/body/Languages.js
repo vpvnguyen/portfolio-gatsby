@@ -4,7 +4,7 @@ import theme from "../../ui/theme";
 import GithubAPI from "../../utils/api/github.api";
 
 const Languages = ({ url, user, projectName }) => {
-  const [languages, setLanguages] = useState([]);
+  const [languages, setLanguages] = useState(null);
 
   useEffect(() => {
     const defaultLanguageStyle = () => ({
