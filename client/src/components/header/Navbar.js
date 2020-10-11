@@ -13,12 +13,12 @@ const style = {
     height: "70px",
   },
   navContainer: {
-    display: "flex",
     alignItems: "center",
     backgroundColor: theme.color.dark,
     color: theme.color.accent,
   },
   author: {
+    fontFamily: theme.font.fontFamily,
     flexGrow: 1,
     color: theme.color.accent,
     "&:hover": {
@@ -27,6 +27,7 @@ const style = {
     textDecoration: "none",
   },
   resume: {
+    fontFamily: theme.font.fontFamily,
     color: theme.color.accent,
     textDecoration: "none",
   },
