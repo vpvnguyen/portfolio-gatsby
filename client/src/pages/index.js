@@ -3,6 +3,7 @@ import Layout from "../ui/layout/Layout";
 import Landing from "../components/landing/Landing";
 import ListProjects from "../components/body/ListProjects";
 import Footer from "../components/footer/Footer";
+import Experience from '../components/body/Experience'
 import EmbedTwitterTimeline from "../components/body/EmbedTwitterTimeline";
 import Background from "../components/landing/Background";
 
@@ -49,6 +50,7 @@ const IndexPage = () => (
             <ListProjects />
           </div>
           <div style={style.right}>
+            <Experience />
             <EmbedTwitterTimeline />
           </div>
         </div>
