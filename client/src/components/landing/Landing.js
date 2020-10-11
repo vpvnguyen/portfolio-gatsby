@@ -1,5 +1,5 @@
 import React from "react";
-import LayoutStyle from "../../ui/layout/Layout.style";
+import LayoutComponent from "../../ui/layout/Layout.component";
 import Welcome from "./Welcome";
 
 const style = {
@@ -13,13 +13,13 @@ const style = {
 };
 
 const Landing = () => (
-  <LayoutStyle>
+  <LayoutComponent>
     <div style={style.container}>
       <div style={style.landingMessage}>
         <Welcome />
       </div>
     </div>
-  </LayoutStyle>
+  </LayoutComponent>
 );
 
 export default Landing;
