@@ -41,6 +41,11 @@ const theme = {
   h3: {
     fontSize: "1.3em",
   },
+  font: {
+    // fontFamily: 'arial',
+    fontFamily: 'Source Code Pro, monospace',
+    fontSize: '16px'
+  }
 };
 
 export default theme;
