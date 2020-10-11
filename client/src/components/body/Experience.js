@@ -1,12 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
-import LayoutStyle from "../../ui/layout/Layout.style";
+import LayoutComponent from "../../ui/layout/Layout.component";
 import theme from "../../ui/theme";
 import useStaticExperienceQuery from "../../utils/hooks/useStaticExperienceQuery";
 import MotionStyle from "../../ui/motion";
 
 const style = {
   experienceContainer: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  experienceList: {
       fontSize: '.8rem',
       paddingLeft: '.5rem',
       paddingBottom: '.5rem'
@@ -41,16 +45,18 @@ const Experience = () => {
   const data = useStaticExperienceQuery();
 
   return (
-    <LayoutStyle>
-      <MotionExperienceHeader >
-        <h1 style={style.experienceHeader}>Experience</h1>
-      </MotionExperienceHeader>
-      <MotionExperience>
-        {data.site.siteMetadata.experience.map((experience) => (
-          <div style={style.experienceContainer}>{experience.toUpperCase()}</div>
-        ))}
-      </MotionExperience>
-    </LayoutStyle>
+    <LayoutComponent>
+        <MotionExperienceHeader >
+          <h1 style={style.experienceHeader}>Experience</h1>
+        </MotionExperienceHeader>
+        <div style={style.experienceCotainer}>
+        <MotionExperience>
+          {data.site.siteMetadata.experience.map((experience) => (
+            <div style={style.experienceList}>{experience.toUpperCase()}</div>
+          ))}
+        </MotionExperience>
+        </div>
+    </LayoutComponent>
   );
 };
 
