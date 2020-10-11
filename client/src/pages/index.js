@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../ui/layout/Layout";
+import LayoutGlobal from "../ui/layout/Layout.global";
 import Landing from "../components/landing/Landing";
 import ListProjects from "../components/body/ListProjects";
 import Footer from "../components/footer/Footer";
@@ -36,7 +36,7 @@ const style = {
 };
 
 const IndexPage = () => (
-  <Layout>
+  <LayoutGlobal>
     <div style={style.page}>
       <div style={style.container}>
         <div style={style.static}>
@@ -57,7 +57,7 @@ const IndexPage = () => (
       </div>
       <Footer />
     </div>
-  </Layout>
+  </LayoutGlobal>
 );
 
 export default IndexPage;
