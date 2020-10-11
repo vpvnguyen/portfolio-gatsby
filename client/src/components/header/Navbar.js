@@ -15,11 +15,10 @@ const style = {
   navContainer: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
     backgroundColor: theme.color.dark,
     color: theme.color.accent,
   },
-  title: {
+  author: {
     flexGrow: 1,
     color: theme.color.accent,
     "&:hover": {
@@ -35,18 +34,18 @@ const style = {
   motionToolbar: MotionStyle.springDownToolBar(),
 };
 
-const Name = ({ name }) => {
+const Author = ({ author }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <Button
-      style={style.title}
+      style={style.author}
       onClick={scrollToTop}
       title="Take me to the top!"
     >
-      {name}
+      {author}
     </Button>
   );
 };
@@ -91,7 +90,7 @@ const MotionButtonText = ({ children }) => (
   </motion.div>
 );
 
-const Navbar = ({ name }) => {
+const Navbar = ({ author }) => {
   return (
     <div style={style.root}>
       <ElevationScroll>
@@ -99,7 +98,7 @@ const Navbar = ({ name }) => {
           <MotionToolbar>
             <Toolbar>
               <MotionButtonText>
-                <Name name={name} />
+                <Author author={author} />
               </MotionButtonText>
 
               <Social />
