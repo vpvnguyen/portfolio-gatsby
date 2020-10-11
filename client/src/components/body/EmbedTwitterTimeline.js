@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import LayoutStyle from "../../ui/layout/Layout.style";
+import LayoutComponent from "../../ui/layout/Layout.component";
 import theme from "../../ui/theme";
 import useStaticTwitterQuery from "../../utils/hooks/useStaticTwitterQuery";
 import useScript from "../../utils/hooks/useScript";
@@ -39,7 +39,7 @@ const EmbedTwitterTimeline = () => {
   useScript("https://platform.twitter.com/widgets.js");
 
   return (
-    <LayoutStyle>
+    <LayoutComponent>
       <MotionTwitterHeader>Tweets</MotionTwitterHeader>
       <MotionTwitterTimeline>
         <a
@@ -51,7 +51,7 @@ const EmbedTwitterTimeline = () => {
           {" "}
         </a>
       </MotionTwitterTimeline>
-    </LayoutStyle>
+    </LayoutComponent>
   );
 };
 
