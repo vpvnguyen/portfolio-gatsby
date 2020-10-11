@@ -5,10 +5,7 @@ const useStaticExperienceQuery = () =>
     query siteExperienceQuery {
       site {
         siteMetadata {
-          experience {
-            current
-            past
-          }
+          experience 
         }
       }
     }
