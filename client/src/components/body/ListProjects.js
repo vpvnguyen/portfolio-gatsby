@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faCode } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import dayjs from "dayjs";
-import LayoutStyle from "../../ui/layout/Layout.style";
+import LayoutComponent from "../../ui/layout/Layout.component";
 import Languages from "./Languages";
 import theme from "../../ui/theme";
 import MotionStyle from "../../ui/motion";
@@ -15,12 +15,12 @@ const style = {
   container: {
     display: "flex",
     flexDirection: "column",
-    fontFamily: "arial",
   },
   body: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    fontFamily: theme.font.fontFamily
   },
   projectInfo: {
     display: "flex",
@@ -35,11 +35,6 @@ const style = {
     fontSize: ".6rem",
     paddingTop: "1.5rem",
     fontStyle: "oblique",
-  },
-  loaderContainer: {
-    display: "flex",
-    flexDirection: "row",
-    padding: "40px",
   },
   motionProjectHeader: MotionStyle.fadeInHeadersLeft(),
   motionProject: MotionStyle.animateProject(),
@@ -68,7 +63,7 @@ const MotionProject = ({ children }) => (
 );
 
 const ListProjects = () => {
-  const [githubProjects, setGithubProjects] = useState();
+  const [githubProjects, setGithubProjects] = useState(null);
   const [loading, setLoading] = useState(true);
   const data = useStaticGithubApiQuery();
 
@@ -95,7 +90,7 @@ const ListProjects = () => {
   }, [data]);
 
   return (
-    <LayoutStyle>
+    <LayoutComponent>
       <MotionProjectHeader>
         {loading ? "Loading Projects..." : "Projects"}
       </MotionProjectHeader>
@@ -148,7 +143,7 @@ const ListProjects = () => {
           <LinearProgress />
         )}
       </div>
-    </LayoutStyle>
+    </LayoutComponent>
   );
 };
 
