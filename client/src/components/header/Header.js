@@ -2,10 +2,10 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { CssBaseline } from "@material-ui/core";
 
-const Header = ({ title }) => (
+const Header = ({ author }) => (
   <>
     <CssBaseline />
-    <Helmet title={title} />
+    <Helmet author={author} />
   </>
 );
 
