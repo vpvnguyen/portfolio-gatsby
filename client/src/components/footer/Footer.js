@@ -1,7 +1,7 @@
 import React from "react";
 import Social from "../Social";
 import theme from "../../ui/theme";
-import useStaticTitleQuery from "../../utils/hooks/useStaticTitleQuery";
+import useStaticAuthorQuery from "../../utils/hooks/useStaticAuthorQuery";
 
 const style = {
   footer: {
@@ -17,12 +17,12 @@ const style = {
 };
 
 const Footer = () => {
-  const data = useStaticTitleQuery();
+  const data = useStaticAuthorQuery();
 
   return (
     <footer style={style.footer}>
       <div style={style.footerContent}>
-        © {new Date().getFullYear()} {data.site.siteMetadata.title}
+        © {new Date().getFullYear()} {data.site.siteMetadata.author}
         <Social />
       </div>
     </footer>
