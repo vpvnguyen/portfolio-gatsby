@@ -23,14 +23,14 @@ class MotionStyle {
   static springUpWelcomeHeader = () => ({
     initial: {
       opacity: 0,
-      y: 10,
+      y: 20,
     },
     animate: {
       opacity: 1,
       y: 0,
       transition: {
         type: "spring",
-        damping: 80,
+        damping: 50,
       },
     },
   });
@@ -38,41 +38,6 @@ class MotionStyle {
   static springUpWelcomeText = () => ({
     initial: {
       opacity: 0,
-      y: 10,
-    },
-    animate: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        damping: 80,
-      },
-    },
-    whileHover: {
-      webkitBoxShadow: this.projectBoxShadow() /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */,
-      mozBoxShadow: this.projectBoxShadow() /* Firefox 3.5 - 3.6 */,
-      boxShadow: this.projectBoxShadow() /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */,
-    },
-  });
-
-  static springDownToolBar = () => ({
-    initial: {
-      y: -50,
-    },
-    animate: {
-      rotate: 0,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 50,
-        delay: 1.5,
-      },
-    },
-  });
-
-  static springUpAboutMeHeader = () => ({
-    initial: {
-      opacity: 0,
       y: 20,
     },
     animate: {
@@ -81,23 +46,7 @@ class MotionStyle {
       transition: {
         type: "spring",
         damping: 50,
-        delay: 2.5,
-      },
-    },
-  });
-
-  static springUpAboutMeText = () => ({
-    initial: {
-      opacity: 0,
-      y: 20,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 70,
-        delay: 4,
+        delay: 1,
       },
     },
   });
@@ -119,6 +68,22 @@ class MotionStyle {
   });
 
   static fadeInTwitterTimelineRight = () => ({
+    initial: {
+      opacity: 0,
+      x: -5,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        damping: 50,
+        duration: 0.5,
+      },
+    },
+  });
+
+  static fadeInExperienceRight = () => ({
     initial: {
       opacity: 0,
       x: -5,
