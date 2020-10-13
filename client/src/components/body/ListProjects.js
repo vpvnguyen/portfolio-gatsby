@@ -20,7 +20,7 @@ const style = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    fontFamily: theme.font.fontFamily
+    fontFamily: theme.font.fontFamily,
   },
   projectInfo: {
     display: "flex",
@@ -92,12 +92,12 @@ const ListProjects = () => {
   return (
     <LayoutComponent>
       <MotionProjectHeader>
-        {loading ? "Loading Projects..." : "Projects"}
+        {loading ? "Loading Personal Projects..." : "Personal Projects"}
       </MotionProjectHeader>
       <div style={style.container}>
         {githubProjects ? (
           githubProjects.map(project => (
-            <MotionProject>
+            <MotionProject key={project.name}>
               <Button
                 key={project.name}
                 style={style.body}
