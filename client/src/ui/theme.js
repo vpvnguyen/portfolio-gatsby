@@ -42,10 +42,9 @@ const theme = {
     fontSize: "1.3em",
   },
   font: {
-    // fontFamily: 'arial',
-    fontFamily: 'Source Code Pro, monospace',
-    fontSize: '16px'
-  }
+    fontFamily: "Source Code Pro, monospace",
+    fontSize: "16px",
+  },
 };
 
 export default theme;
