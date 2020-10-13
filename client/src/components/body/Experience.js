@@ -7,13 +7,13 @@ import MotionStyle from "../../ui/motion";
 
 const style = {
   experienceContainer: {
-    display: 'flex',
-    alignItems: 'center'
+    display: "flex",
+    alignItems: "center",
   },
   experienceList: {
-      fontSize: '.8rem',
-      paddingLeft: '.5rem',
-      paddingBottom: '.5rem'
+    fontSize: ".8rem",
+    paddingLeft: ".5rem",
+    paddingBottom: ".5rem",
   },
   experienceHeader: theme.h1,
 
@@ -46,16 +46,18 @@ const Experience = () => {
 
   return (
     <LayoutComponent>
-        <MotionExperienceHeader >
-          <h1 style={style.experienceHeader}>Experience</h1>
-        </MotionExperienceHeader>
-        <div style={style.experienceCotainer}>
+      <MotionExperienceHeader>
+        <h1 style={style.experienceHeader}>Experience</h1>
+      </MotionExperienceHeader>
+      <div style={style.experienceCotainer}>
         <MotionExperience>
-          {data.site.siteMetadata.experience.map((experience) => (
-            <div style={style.experienceList}>{experience.toUpperCase()}</div>
+          {data.site.siteMetadata.experience.map(experience => (
+            <div key={experience} style={style.experienceList}>
+              {experience.toUpperCase()}
+            </div>
           ))}
         </MotionExperience>
-        </div>
+      </div>
     </LayoutComponent>
   );
 };
