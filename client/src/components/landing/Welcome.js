@@ -7,11 +7,10 @@ import useStaticAuthorQuery from "../../utils/hooks/useStaticAuthorQuery";
 const style = {
   welcomeHeader: theme.h1,
   welcomeHeaderContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    padding: '1rem'
-
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    padding: "1rem",
   },
   welcomeTextTitle: theme.h1,
   motionWelcomeHeader: MotionStyle.springUpWelcomeHeader(),
@@ -48,7 +47,7 @@ const Welcome = () => {
           <h1 style={style.welcomeHeader}>{data.site.siteMetadata.author}</h1>
         </MotionWelcomeHeader>
         <MotionWelcomeText>
-          I enjoy breaking and building things.
+          I enjoy breaking and building things
         </MotionWelcomeText>
       </div>
     </>
