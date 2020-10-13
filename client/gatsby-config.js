@@ -6,8 +6,11 @@ module.exports = {
       "Software Engineer",
       "Quality Assurance",
       "Pipeline Management",
-      "Test Automation",
       "PCI Security Standard",
+    ],
+    professionalProjects: [
+      { name: 'Mazda Reimbursement', url: 'https://mazdareimbursement.com/'},
+      { name: 'Hyundai Engine Settlement', url: 'https://www.hmaenginesettlement.com/'}
     ],
     social: {
       twitter: {
