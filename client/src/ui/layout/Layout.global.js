@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/header/Navbar";
 import useStaticAuthorQuery from "../../utils/hooks/useStaticAuthorQuery";
-import theme from '../../ui/theme'
+import theme from "../../ui/theme";
 
 const style = {
   fontFamily: theme.font.fontFamily,
-  fontSize: theme.font.fontSize
+  fontSize: theme.font.fontSize,
 };
 
 const LayoutGlobal = ({ children }) => {
