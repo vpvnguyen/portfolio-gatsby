@@ -38,6 +38,7 @@ const ProfessionalProjects = () => {
               <div>{project.name}</div>
               <div>{project.description}</div>
               <div>{project.languages}</div>
+              <div>{project.date}</div>
             </div>
           </Button>
         ))}
