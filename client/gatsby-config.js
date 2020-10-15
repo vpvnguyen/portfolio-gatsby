@@ -9,8 +9,22 @@ module.exports = {
       "PCI Security Standard",
     ],
     professionalProjects: [
-      { name: 'Mazda Reimbursement', url: 'https://mazdareimbursement.com/'},
-      { name: 'Hyundai Engine Settlement', url: 'https://www.hmaenginesettlement.com/'}
+      {
+        name: "Mazda Reimbursement",
+        url: "https://mazdareimbursement.com/",
+        description:
+          "Mazda reimbursement program for recalls and special services for selected vehicles.",
+        date: "Mar-2020",
+        languages: ["typescript", "scss"],
+      },
+      {
+        name: "Hyundai Motors America Engine Settlement",
+        url: "https://www.hmaenginesettlement.com/",
+        description:
+          "Hyundai theta engine class action settlement claim program.",
+        date: "Jul-2020",
+        languages: ["laravel", "php", "html", "css"],
+      },
     ],
     social: {
       twitter: {
