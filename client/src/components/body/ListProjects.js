@@ -62,6 +62,43 @@ const MotionProject = ({ children }) => (
   </motion.div>
 );
 
+const ProjectTitle = ({ projectName, projectHomepage }) => (
+  <h3 style={style.projectName}>
+    {projectName}{" "}
+    <span>
+      {projectHomepage ? (
+        <FontAwesomeIcon icon={faGlobe} title="Click me for live demo!" />
+      ) : (
+        <FontAwesomeIcon
+          icon={faCode}
+          title="Click me to go to the repository!"
+        />
+      )}
+    </span>
+  </h3>
+);
+
+const ProjectDescription = ({ projectDescription }) => (
+  <div style={style.subtext}>{projectDescription}</div>
+);
+
+const ProjectDate = ({ projectDate }) => (
+  <div style={style.date}>{dayjs(projectDate).format("MMM-YYYY")}</div>
+);
+
+const ProjectButton = ({ children, projectName, projectLink }) => (
+  <Button
+    key={projectName}
+    style={style.body}
+    href={projectLink}
+    target="_blank"
+    rel="noreferrer"
+    fullWidth
+  >
+    {children}
+  </Button>
+);
+
 const ListProjects = () => {
   const [githubProjects, setGithubProjects] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -95,39 +132,26 @@ const ListProjects = () => {
         {loading ? "Loading Personal Projects..." : "Personal Projects"}
       </MotionProjectHeader>
       <div style={style.container}>
-        {githubProjects ? (
+        {loading ? (
+          <LinearProgress />
+        ) : (
           githubProjects.map(project => (
             <MotionProject key={project.name}>
-              <Button
-                key={project.name}
-                style={style.body}
-                href={project.homepage || project.html_url}
-                target="_blank"
-                rel="noreferrer"
-                fullWidth
+              <ProjectButton
+                projectName={project.name}
+                projectLink={project.homepage || project.html_url}
               >
                 <div style={style.projectInfo}>
-                  <h3 style={style.projectName}>
-                    {project.name}{" "}
-                    <span>
-                      {project.homepage ? (
-                        <FontAwesomeIcon
-                          icon={faGlobe}
-                          title="Click me for live demo!"
-                        />
-                      ) : (
-                        <FontAwesomeIcon
-                          icon={faCode}
-                          title="Click me to go to the repository!"
-                        />
-                      )}
-                    </span>
-                  </h3>
+                  <ProjectTitle
+                    projectName={project.name}
+                    projectHomepage={project.homepage}
+                  />
 
-                  <div style={style.subtext}>{project.description}</div>
-                  <div style={style.date}>
-                    {dayjs(project.pushed_at).format("MMM-YYYY")}
-                  </div>
+                  <ProjectDescription
+                    projectDescription={project.description}
+                  />
+
+                  <ProjectDate projectDate={project.pushed_at} />
                 </div>
 
                 <Languages
@@ -136,11 +160,9 @@ const ListProjects = () => {
                   user={data.site.siteMetadata.api.github.user}
                   projectName={project.name}
                 />
-              </Button>
+              </ProjectButton>
             </MotionProject>
           ))
-        ) : (
-          <LinearProgress />
         )}
       </div>
     </LayoutComponent>
