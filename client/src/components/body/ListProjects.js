@@ -104,39 +104,24 @@ const ListProjects = () => {
   const [loading, setLoading] = useState(true);
   const data = useStaticGithubApiQuery();
 
-  useEffect(() => {
-    const getGithubProjects = async (url, user, pageAmount) => {
-      try {
-        const githubProjectsResponse = await GithubAPI.fetchGithubProjects(
-          url,
-          user,
-          pageAmount
-        );
-        await setGithubProjects(githubProjectsResponse);
-        setLoading(false);
-      } catch (error) {
-        await setGithubProjects(null);
-      }
-    };
-
-    getGithubProjects(
-      data.site.siteMetadata.api.github.url,
-      data.site.siteMetadata.api.github.user,
-      data.site.siteMetadata.api.github.pageAmount
-    );
-  }, [data]);
-
   return (
     <LayoutComponent>
+      {/* pull this out */}
       <MotionProjectHeader>
-        {loading ? "Loading Personal Projects..." : "Personal Projects"}
+        {loading
+          ? "Loading <project type> Projects..."
+          : "<project type> Projects"}
       </MotionProjectHeader>
+      {/* project container */}
       <div style={style.container}>
         {loading ? (
           <LinearProgress />
         ) : (
+          // array
           githubProjects.map(project => (
+            //   motion key=projectName
             <MotionProject key={project.name}>
+              {/* project button */}
               <ProjectButton
                 projectName={project.name}
                 projectLink={project.homepage || project.html_url}
@@ -154,6 +139,7 @@ const ListProjects = () => {
                   <ProjectDate projectDate={project.pushed_at} />
                 </div>
 
+                {/* decide whether to use languages or not */}
                 <Languages
                   style={style.subtext}
                   url={data.site.siteMetadata.api.github.url}
