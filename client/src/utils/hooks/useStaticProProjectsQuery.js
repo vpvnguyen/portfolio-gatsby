@@ -8,6 +8,9 @@ const useStaticProProjectsQuery = () =>
           professionalProjects {
             name
             url
+            description
+            date
+            languages
           }
         }
       }
