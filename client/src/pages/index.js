@@ -2,7 +2,7 @@ import React from "react";
 import LayoutGlobal from "../ui/layout/Layout.global";
 import Landing from "../components/landing/Landing";
 import ProfessionalProjects from "../components/body/ProfessionalProjects";
-import ListProjects from "../components/body/ListProjects";
+import GithubProjects from "../components/body/GithubProjects";
 import Footer from "../components/footer/Footer";
 import Experience from "../components/body/Experience";
 import EmbedTwitterTimeline from "../components/body/EmbedTwitterTimeline";
@@ -49,7 +49,7 @@ const IndexPage = () => (
         <div style={style.content}>
           <div style={style.leftColumn}>
             <ProfessionalProjects />
-            <ListProjects />
+            <GithubProjects />
           </div>
           <div style={style.rightColumn}>
             <Experience />
