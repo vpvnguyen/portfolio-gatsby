@@ -95,7 +95,9 @@ const GithubProjects = () => {
         {loading ? "Loading Personal Projects..." : "Personal Projects"}
       </MotionProjectHeader>
       <div style={style.container}>
-        {githubProjects ? (
+        {loading ? (
+          <LinearProgress />
+        ) : (
           githubProjects.map(project => (
             <MotionProject key={project.name}>
               <Button
@@ -139,8 +141,6 @@ const GithubProjects = () => {
               </Button>
             </MotionProject>
           ))
-        ) : (
-          <LinearProgress />
         )}
       </div>
     </LayoutComponent>
