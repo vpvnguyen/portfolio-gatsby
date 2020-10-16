@@ -113,9 +113,9 @@ class MotionStyle {
       },
     },
     whileHover: {
-      webkitBoxShadow: `3px 3px 5px 6px #ccc` /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */,
-      mozBoxShadow: `3px 3px 5px 6px #ccc` /* Firefox 3.5 - 3.6 */,
-      boxShadow: `3px 3px 5px 6px #ccc` /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */,
+      webkitBoxShadow: this.projectBoxShadow() /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */,
+      mozBoxShadow: this.projectBoxShadow() /* Firefox 3.5 - 3.6 */,
+      boxShadow: this.projectBoxShadow() /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */,
     },
   });
 
