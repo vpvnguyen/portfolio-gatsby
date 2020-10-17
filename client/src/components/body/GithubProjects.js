@@ -12,11 +12,11 @@ import GithubAPI from "../../utils/api/github.api";
 import useStaticGithubApiQuery from "../../utils/hooks/useStaticGithubApiQuery";
 
 const style = {
-  container: {
+  projectContainer: {
     display: "flex",
     flexDirection: "column",
   },
-  body: {
+  projectButton: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -28,10 +28,10 @@ const style = {
   },
   projectHeader: theme.h1,
   projectName: theme.h3,
-  subtext: {
+  projectDescription: {
     fontSize: ".7rem",
   },
-  date: {
+  projectDate: {
     fontSize: ".6rem",
     paddingTop: "1.5rem",
     fontStyle: "oblique",
@@ -60,6 +60,30 @@ const MotionProject = ({ children }) => (
   >
     {children}
   </motion.div>
+);
+
+const ProjectTitle = ({ projectName, projectHomepage }) => (
+  <h3 style={style.projectName}>
+    {projectName}{" "}
+    <span>
+      {projectHomepage ? (
+        <FontAwesomeIcon icon={faGlobe} title="Click me for live demo!" />
+      ) : (
+        <FontAwesomeIcon
+          icon={faCode}
+          title="Click me to go to the repository!"
+        />
+      )}
+    </span>
+  </h3>
+);
+
+const ProjectDescription = ({ projectDescription }) => (
+  <div style={style.projectDescription}>{projectDescription}</div>
+);
+
+const ProjectDate = ({ projectDate }) => (
+  <div style={style.projectDate}>{dayjs(projectDate).format("MMM-YYYY")}</div>
 );
 
 const GithubProjects = () => {
@@ -94,7 +118,7 @@ const GithubProjects = () => {
       <MotionProjectHeader>
         {loading ? "Loading Personal Projects..." : "Personal Projects"}
       </MotionProjectHeader>
-      <div style={style.container}>
+      <div style={style.projectContainer}>
         {loading ? (
           <LinearProgress />
         ) : (
@@ -102,38 +126,26 @@ const GithubProjects = () => {
             <MotionProject key={project.name}>
               <Button
                 key={project.name}
-                style={style.body}
+                style={style.projectButton}
                 href={project.homepage || project.html_url}
                 target="_blank"
                 rel="noreferrer"
                 fullWidth
               >
                 <div style={style.projectInfo}>
-                  <h3 style={style.projectName}>
-                    {project.name}{" "}
-                    <span>
-                      {project.homepage ? (
-                        <FontAwesomeIcon
-                          icon={faGlobe}
-                          title="Click me for live demo!"
-                        />
-                      ) : (
-                        <FontAwesomeIcon
-                          icon={faCode}
-                          title="Click me to go to the repository!"
-                        />
-                      )}
-                    </span>
-                  </h3>
+                  <ProjectTitle
+                    projectName={project.name}
+                    projectHomepage={project.homepage}
+                  />
 
-                  <div style={style.subtext}>{project.description}</div>
-                  <div style={style.date}>
-                    {dayjs(project.pushed_at).format("MMM-YYYY")}
-                  </div>
+                  <ProjectDescription
+                    projectDescription={project.description}
+                  />
+
+                  <ProjectDate projectDate={project.pushed_at} />
                 </div>
 
                 <Languages
-                  style={style.subtext}
                   url={data.site.siteMetadata.api.github.url}
                   user={data.site.siteMetadata.api.github.user}
                   projectName={project.name}
