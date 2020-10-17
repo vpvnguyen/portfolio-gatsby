@@ -79,11 +79,11 @@ const ProjectTitle = ({ projectName, projectHomepage }) => (
 );
 
 const ProjectDescription = ({ projectDescription }) => (
-  <div style={style.projectDescription}>{projectDescription}</div>
+  <p style={style.projectDescription}>{projectDescription}</p>
 );
 
 const ProjectDate = ({ projectDate }) => (
-  <div style={style.projectDate}>{dayjs(projectDate).format("MMM-YYYY")}</div>
+  <p style={style.projectDate}>{dayjs(projectDate).format("MMM-YYYY")}</p>
 );
 
 const GithubProjects = () => {
