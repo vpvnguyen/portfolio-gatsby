@@ -20,7 +20,7 @@ const style = {
   },
   proProjectDate: {
     fontSize: ".6rem",
-    paddingTop: "1.5rem",
+    paddingTop: "1rem",
     fontStyle: "oblique",
   },
   proProjectList: {
@@ -28,6 +28,9 @@ const style = {
     flexDirection: "column",
   },
   proProjectButton: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
     fontFamily: theme.font.fontFamily,
   },
   motionProProjectHeader: MotionStyle.fadeInHeadersLeft(),
