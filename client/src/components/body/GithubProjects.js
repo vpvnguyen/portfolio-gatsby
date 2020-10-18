@@ -33,7 +33,7 @@ const style = {
   },
   projectDate: {
     fontSize: ".6rem",
-    paddingTop: "1.5rem",
+    paddingTop: "1rem",
     fontStyle: "oblique",
   },
   motionProjectHeader: MotionStyle.fadeInHeadersLeft(),
